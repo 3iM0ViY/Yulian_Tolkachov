@@ -1,5 +1,5 @@
 /* ===================================
-    0. Clear CSS
+	0. Clear CSS
 ====================================== */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -90,7 +90,7 @@ input:focus, textarea:focus
 }
 
 /* ===================================
-    1. Global CSS
+	1. Global CSS
 ====================================== */
 img{
 	max-width: 400px;
@@ -146,7 +146,7 @@ a{
 	transition: .35s ease-out;
 }
 a:hover{
- 	color: var(--accent);
+	color: var(--accent);
 }
 .active{
 	color: var(--blue) !important;
@@ -189,7 +189,7 @@ p a{
 	font-weight: 700;
 }
 /* ===================================
-    2. Header / Menu CSS
+	2. Header / Menu CSS
 ====================================== */
 header{
 	max-width: 20%;
@@ -250,7 +250,7 @@ header{
 }
 
 /* ===================================
-    3. Sections
+	3. Sections
 ====================================== */
 .home{
 /*	height: 100vh;*/
@@ -401,8 +401,6 @@ h1>span:hover {
 	max-width: 260px;
 }
 
-
-
 .portfolio_grid{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -416,20 +414,20 @@ h1>span:hover {
 		"Image-5 Image-5";
 	
 	max-width: 900px;
-    margin: auto;
+	margin: auto;
 	width: 65vw;
 	max-height: 1800px;
 	height: 100%;
 }
 .portfolio_grid_block {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
 }
 .portfolio_grid_block::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
+	content: '';
+	display: block;
+	padding-top: 100%;
 }
 .portfolio_grid_caption{
 	position: absolute;
@@ -451,11 +449,11 @@ h1>span:hover {
 }
 .portfolio_grid_caption p{
 	font-size: 15px;
-    line-height: 100%;
-    font-weight: 500;
-    color: rgb(255, 255, 255);
-    margin-bottom: 0px;
-    padding-bottom: 10px;
+	line-height: 100%;
+	font-weight: 500;
+	color: rgb(255, 255, 255);
+	margin-bottom: 0px;
+	padding-bottom: 10px;
 }
 .portfolio_title{
 	font-size: 28px !important;
@@ -464,28 +462,28 @@ h1>span:hover {
 .portfolio_grid_img{
 	height: 100%;
 	position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 .portfolio_grid_img img{
 	max-width: 900px;
 	height: 100%;
-    object-fit: cover;
-    width: 100%;
+	object-fit: cover;
+	width: 100%;
 }
 .portfolio_grid_block:nth-child(2) img,
 .portfolio_grid_block:nth-child(3) img,
 .portfolio_grid_block:nth-child(4) img {
-    max-width: 450px;
+	max-width: 450px;
 }
 .portfolio_grid_block:nth-child(1),
 .portfolio_grid_block:nth-child(5) {
-    max-height: 450px;
+	max-height: 450px;
 }
 .portfolio_grid .portfolio_grid_block:nth-child(2)::before {
-    padding-top: 200%;
+	padding-top: 200%;
 }
 .portfolio_grid_block:nth-child(1) { grid-area: Image-1; }
 .portfolio_grid_block:nth-child(2) { grid-area: Image2; }
@@ -498,21 +496,21 @@ h1>span:hover {
 	width: 100%;
 }
 .blog_content li:not(:first-child){
-    border-top: 2px solid var(--white);
+	border-top: 2px solid var(--white);
 }
 .blog_element{
 	display: flex;
 	justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
+	align-items: center;
+	padding: 30px 0;
 }
 .blog_element>a{
 	font-size: 26px;
-    margin-right: 30px;
-    color: var(--black);
-    font-weight: 700;
-    max-width: 75%;
-    width: 100%;
+	margin-right: 30px;
+	color: var(--black);
+	font-weight: 700;
+	max-width: 75%;
+	width: 100%;
 }
 .blog_element>a:hover{
 	color: var(--accent);
@@ -521,10 +519,10 @@ h1>span:hover {
 	display: flex;
 	flex-direction: column;
 	font-weight: 700;
-    font-size: 10px;
-    line-height: 14px;
-    letter-spacing: 3px;
-    min-width: 100px;
+	font-size: 10px;
+	line-height: 14px;
+	letter-spacing: 3px;
+	min-width: 100px;
 }
 .blog_info span:last-child{
 	color: var(--accent);
@@ -539,79 +537,79 @@ h1>span:hover {
 	background-color: var(--blue);
 	color: var(--white);
 	margin-top: 41px;
-    padding: 4.375vw 4.167vw 4.306vw 6.528vw;
-    margin-right: -100px;
+	padding: 4.375vw 4.167vw 4.306vw 6.528vw;
+	margin-right: -100px;
 }
 .skills_group li{
 	display: flex;
-    align-items: center;
-    position: relative;
+	align-items: center;
+	position: relative;
 }
 .skills_group li:before {
-    content: '';
-    position: absolute;
-    left: 28%;
-    top: 0;
-    background-color: var(--white);
-    width: 3px;
-    height: 100%;
+	content: '';
+	position: absolute;
+	left: 28%;
+	top: 0;
+	background-color: var(--white);
+	width: 3px;
+	height: 100%;
 }
 .skills_date{
 	max-width: 28%;
 	width: 100%;
-    font-weight: 200;
-    font-size: 60px;
-    line-height: 30px;
-    transition: .35s ease-out;
+	font-weight: 200;
+	font-size: 60px;
+	line-height: 30px;
+	transition: .35s ease-out;
 }
 .skills_group li:hover .skills_date{
 	transform: translateX(15px);
-    color: var(--accent);   
+	color: var(--accent);   
 }
 .skills_text{
 	max-width: 72%;
 	width: 100%;
-    padding: 0 50px 0 80px;
-    transition: .35s ease-out;
-    margin-bottom: 0;
+	padding: 0 50px 0 80px;
+	transition: .35s ease-out;
+	margin-bottom: 0;
 }
 .skills_group li:hover .skills_text{
 	transform: translateX(-15px); 
 }
 .skills_group li:not(:first-child){
-    padding-top: 37px;
+	padding-top: 37px;
 }
 .skills_progress{
 	display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-right: 40px;
-    padding-top: 69px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-right: 40px;
+	padding-top: 69px;
 }
 .skills_progress li{
 	display: flex;
-    align-items: center;
-    width: calc(50% - 35px);
-    margin-bottom: 22px;
+	align-items: center;
+	width: calc(50% - 35px);
+	margin-bottom: 22px;
 }
 .skills_name{
 	font-size: 12px;
-    line-height: 28px;
-    letter-spacing: 3.5px;
-    width: 37%;
-    padding-right: 30px;
-    text-transform: uppercase;
+	line-height: 28px;
+	letter-spacing: 3.5px;
+	width: 37%;
+	padding-right: 30px;
+	text-transform: uppercase;
 }
 .skill_fill{
 	width: 100%;
-    height: 10px;
-    background-color: var(--blue-lighter);
-    width: 63%;
+	height: 10px;
+	background-color: var(--blue-lighter);
+	width: 63%;
 }
 .skill_fill_progress{
-    height: 10px;
-    background-color: var(--blue-darker);
-    transition: width .7s;
+	height: 10px;
+	background-color: var(--blue-darker);
+	transition: width .7s;
 }
 form input, form textarea {
 	margin-top: 0;
@@ -654,7 +652,9 @@ form input[type=submit] {
 	cursor: pointer;
 }
 
-
+/* ===================================
+	4. Tablets
+====================================== */
 @media (max-width: 1199px){
 	.header_opener{
 		position: fixed;
@@ -751,7 +751,7 @@ form input[type=submit] {
 		max-width: 1200px;
 	}
 	.portfolio_grid_block:nth-child(2) img, .portfolio_grid_block:nth-child(3) img, .portfolio_grid_block:nth-child(4) img {
-    	max-width: 1200px;
+		max-width: 1200px;
 	}
 	.portfolio_grid{
 		max-width: 100%;
@@ -766,6 +766,9 @@ form input[type=submit] {
 	}
 }
 
+/* ===================================
+	5. Phones
+====================================== */
 @media (max-width: 750px){
 	.section{
 		padding-top: 65px;
@@ -775,7 +778,7 @@ form input[type=submit] {
 		-webkit-text-stroke: 1px var(--blue-light);
 	}
 	h1>span {
-    	background-size: 100% 3px;
+		background-size: 100% 3px;
 	}
 	header.opened{
 		max-width: 900px;
@@ -796,14 +799,14 @@ form input[type=submit] {
 		justify-content: space-around;
 	}
 	.services_cv li:first-of-type {
-	    margin-right: 0; 
+		margin-right: 0; 
 	}
 	.services_grid{
 		display: flex;
-	    width: 100%;
-	    flex-wrap: wrap;
-	    justify-content: center;
-	    grid-row-gap: 40px;
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		grid-row-gap: 40px;
 	}
 	.services_grid_item{
 		max-width: 1000px;
@@ -823,45 +826,44 @@ form input[type=submit] {
 		transform: translateY(0);
 	}
 	.about_signature img {
-	    max-width: 200px;
+		max-width: 200px;
 	}
 	.portfolio_grid_block:nth-child(1), .portfolio_grid_block:nth-child(5) {
-	    max-height: 200px;
+		max-height: 200px;
 	}
 	.blog_element>a {
-    	font-size: 20px;
-	    max-width: 65%;
+		font-size: 20px;
+		max-width: 65%;
 	}
 	.skills_group {
-    	padding: 10vw 4.167vw 4.306vw 6.528vw;
-    }
+		padding: 10vw 4.167vw 4.306vw 6.528vw;
+	}
 	.skills_group li {
-	    display: flex;
-	    align-items: flex-start; 
-	    flex-direction: column;
+		display: flex;
+		align-items: flex-start; 
+		flex-direction: column;
 	}
 	.skills_group li:before {
-	    content: none;
+		content: none;
 	}
 	.skills_text {
-	    padding: 30px 0 0 0;
-	    max-width: none;
+		padding: 30px 0 0 0;
+		max-width: none;
 	}
 	.skills_progress{
 		padding-right: 0;
 		padding-top: 30px;
 	}
 	.skills_progress li {
-	    width: calc(50% - 7px);
+		width: calc(50% - 7px);
 	}
 	.skills_group li:hover .skills_text {
-	    transform: translateX(0);
+		transform: translateX(0);
 	}
 }
 
-
 /* ===================================
-    ♾. Import Poppins font family
+	♾. Import Poppins font family
 ====================================== */
 @font-face {
 	font-family: 'Poppins';
