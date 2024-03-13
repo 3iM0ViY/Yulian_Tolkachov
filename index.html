@@ -68,6 +68,10 @@
 						<li><a href="#services_cv">Download CV</a></li>
 						<li><a href="#services_cv">My Portfolio</a></li>
 					</ul>
+					<ul class="services_cv services_cv_mobile">
+						<li><a href="#services_cv">Download CV</a></li>
+						<li><a href="#services_cv">My Portfolio</a></li>
+					</ul>
 					<div class="services_grid">
 						<div class="services_grid_item">
 							<img src="horizontal.jpg" alt="">
@@ -102,6 +106,7 @@
 					<div class="section_content">
 						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, asperiores iste placeat iure molestias incidunt ad? Iusto, quia saepe ipsam omnis consequatur inventore dolorum illum modi. Doloremque, debitis. Ullam, vel?</p>
 						<img class="section_content_slide parallax_right right" src="horizontal.jpg" alt="">
+						<img class="section_content_image_mobile" src="horizontal.jpg" alt="">
 						<div class="about_contacts parallax_top">
 							<ul>
 								<li>
@@ -314,18 +319,33 @@
 	</div>
 
 <script>
-	const headerOpener = document.getElementById("header_opener");
-	const header = document.getElementById("header");
+	document.addEventListener("DOMContentLoaded", function() {
+    const headerOpener = document.getElementById("header_opener");
+    const header = document.getElementById("header");
+    const clickableElements = document.querySelectorAll("nav a, .nav_name a");
 
-	headerOpener.addEventListener("click", function() {
-		if (headerOpener.classList.contains("opened")) {
-			headerOpener.classList.remove("opened");
-			header.classList.remove("opened");
-		} else {
-			headerOpener.classList.add("opened");
-			header.classList.add("opened");
-		}
-	});
+    headerOpener.addEventListener("click", function() {
+        toggleHeader();
+    });
+
+    Array.from(clickableElements).forEach(element => {
+        element.addEventListener("click", function() {
+            if(window.innerWidth <= 750) {
+                closeHeader();
+            }
+        });
+    });
+
+    function toggleHeader() {
+        headerOpener.classList.toggle("opened");
+        header.classList.toggle("opened");
+    }
+    function closeHeader() {
+        headerOpener.classList.remove("opened");
+        header.classList.remove("opened");
+    }
+});
+
 </script>
 <script>
 	const parallax = document.querySelectorAll(".parallax");

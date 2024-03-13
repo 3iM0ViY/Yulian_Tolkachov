@@ -20,6 +20,7 @@ time, mark, audio, video {
 	vertical-align:baseline;
 	background:transparent;
 	scroll-behavior: smooth;
+	text-wrap: pretty;
 }
 html{
 	overflow-x: hidden;
@@ -27,26 +28,21 @@ html{
 body {
 	line-height:1;
 }
-
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section { 
 	display:block;
 }
-
 nav ul,ul,ol {
 	list-style:none;
 }
-
 blockquote, q {
 	quotes:none;
 }
-
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content:'';
 	content:none;
 }
-
 a {
 	margin:0;
 	padding:0;
@@ -55,34 +51,28 @@ a {
 	vertical-align:baseline;
 	background:transparent;
 }
-
 ins {
 	background-color:#ff9;
 	color:#000;
 	text-decoration:none;
 }
-
 mark {
 	background-color:#ff9;
 	color:#000; 
 	font-style:italic;
 	font-weight:bold;
 }
-
 del {
 	text-decoration: line-through;
 }
-
 abbr[title], dfn[title] {
 	border-bottom:1px dotted;
 	cursor:help;
 }
-
 table {
 	border-collapse:collapse;
 	border-spacing:0;
 }
-
 hr {
 	display:block;
 	height:1px;
@@ -91,11 +81,9 @@ hr {
 	margin:1em 0;
 	padding:0;
 }
-
 input, select {
 	vertical-align:middle;
 }
-
 input:focus, textarea:focus
 {
 	outline: none;
@@ -276,7 +264,16 @@ header{
 	position: relative;
 }
 h1>span{
-	text-decoration: underline;
+	background-image: linear-gradient(var(--accent), var(--accent));
+	background-size: 100% 8px;
+	background-repeat: no-repeat;
+	background-position: 0 80%;
+	transition: background-size .7s, background-position .5s ease-in-out;
+}
+h1>span:hover {
+  background-size: 100% 80%;
+  background-position: 0% 80%;
+  transition: background-position .7s, background-size .5s ease-in-out;
 }
 .home_wrap img{
 	position: relative;
@@ -293,6 +290,9 @@ h1>span{
 	padding: 50px 70px;
 	margin-top: 110px;
 	width: 900px;
+}
+.services_cv_mobile{
+	display: none;
 }
 .services_cv li:first-of-type{
 	margin-right: 100px;
@@ -363,6 +363,9 @@ h1>span{
 	max-width: 900px;	
 	width: 900px;
 	height: 336px;
+}
+.section_content_image_mobile{
+	display: none;
 }
 .about_contacts{
 	background-color: var(--blue-darkest);
@@ -763,6 +766,98 @@ form input[type=submit] {
 	}
 }
 
+@media (max-width: 750px){
+	.section{
+		padding-top: 65px;
+	}
+	h1{
+		font-size: 4rem;
+		-webkit-text-stroke: 1px var(--blue-light);
+	}
+	h1>span {
+    	background-size: 100% 3px;
+	}
+	header.opened{
+		max-width: 900px;
+	}
+	.home{
+		padding: 0;
+	}
+	.services_cv{
+		display: none;
+		max-width: 100%;
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+		margin-top: 50px
+	}
+	.services_cv_mobile{
+		display: flex;
+		justify-content: space-around;
+	}
+	.services_cv li:first-of-type {
+	    margin-right: 0; 
+	}
+	.services_grid{
+		display: flex;
+	    width: 100%;
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    grid-row-gap: 40px;
+	}
+	.services_grid_item{
+		max-width: 1000px;
+		width: 100%;
+	}
+	.section_content_slide{
+		display: none;
+	}
+	.section_content_image_mobile{
+		display: block;
+		width: -webkit-fill-available;
+		width: 100%;
+	}
+	.about_contacts{
+		float: none;
+		margin-left: 0;
+		transform: translateY(0);
+	}
+	.about_signature img {
+	    max-width: 200px;
+	}
+	.portfolio_grid_block:nth-child(1), .portfolio_grid_block:nth-child(5) {
+	    max-height: 200px;
+	}
+	.blog_element>a {
+    	font-size: 20px;
+	    max-width: 65%;
+	}
+	.skills_group {
+    	padding: 10vw 4.167vw 4.306vw 6.528vw;
+    }
+	.skills_group li {
+	    display: flex;
+	    align-items: flex-start; 
+	    flex-direction: column;
+	}
+	.skills_group li:before {
+	    content: none;
+	}
+	.skills_text {
+	    padding: 30px 0 0 0;
+	    max-width: none;
+	}
+	.skills_progress{
+		padding-right: 0;
+		padding-top: 30px;
+	}
+	.skills_progress li {
+	    width: calc(50% - 7px);
+	}
+	.skills_group li:hover .skills_text {
+	    transform: translateX(0);
+	}
+}
 
 
 /* ===================================
