@@ -19,8 +19,11 @@ time, mark, audio, video {
 	font-size:100%;
 	vertical-align:baseline;
 	background:transparent;
+	scroll-behavior: smooth;
 }
-
+html{
+	overflow-x: hidden;
+}
 body {
 	line-height:1;
 }
@@ -119,6 +122,8 @@ img{
 	--blue-darkest: #1b1b4d;
 	--accent: #ffb900; /* Optional accent color */
 	--blue-deep: #0a0a33;
+
+	--bs-gutter-x: 1.5rem;
 }
 
 body {
@@ -135,6 +140,7 @@ body {
 }
 
 .container{
+/*	overflow: hidden;*/
 	max-width: 1320px;
 	padding-right: calc(var(--bs-gutter-x) * 0.5);
 	padding-left: calc(var(--bs-gutter-x) * 0.5);
@@ -502,6 +508,8 @@ h1>span{
     margin-right: 30px;
     color: var(--black);
     font-weight: 700;
+    max-width: 75%;
+    width: 100%;
 }
 .blog_element>a:hover{
 	color: var(--accent);
@@ -528,7 +536,7 @@ h1>span{
 	background-color: var(--blue);
 	color: var(--white);
 	margin-top: 41px;
-    padding: 63px 60px 62px 94px;
+    padding: 4.375vw 4.167vw 4.306vw 6.528vw;
     margin-right: -100px;
 }
 .skills_group li{
@@ -559,6 +567,7 @@ h1>span{
 }
 .skills_text{
 	max-width: 72%;
+	width: 100%;
     padding: 0 50px 0 80px;
     transition: .35s ease-out;
     margin-bottom: 0;
@@ -643,9 +652,6 @@ form input[type=submit] {
 }
 
 
-
-
-
 @media (max-width: 1199px){
 	.header_opener{
 		position: fixed;
@@ -712,7 +718,6 @@ form input[type=submit] {
 		left: 0;
 		pointer-events: auto;
 	}
-
 	header{
 		right: auto;
 		left: -100%;
@@ -725,6 +730,36 @@ form input[type=submit] {
 		overflow: auto;
 		height: 100%;
 		transition: .25s ease-in;
+	}
+
+	main{
+		max-width: 90vw;
+		margin: 0 auto;
+	}
+	.wrap{
+		max-width: 100%;
+	}
+	.section_content{
+		max-width: 100%;
+		width: auto;
+	}
+
+	.portfolio_grid_img img{
+		max-width: 1200px;
+	}
+	.portfolio_grid_block:nth-child(2) img, .portfolio_grid_block:nth-child(3) img, .portfolio_grid_block:nth-child(4) img {
+    	max-width: 1200px;
+	}
+	.portfolio_grid{
+		max-width: 100%;
+		width: 100%;
+	}
+	.blog_info{
+		font-size: 14px;
+	}
+	.skills_group{
+		width: auto;
+		margin-right: auto;
 	}
 }
 
