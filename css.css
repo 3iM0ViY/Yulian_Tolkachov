@@ -776,6 +776,8 @@ form input[type=submit] {
 	h1{
 		font-size: 4rem;
 		-webkit-text-stroke: 1px var(--blue-light);
+		top: 300px;
+		line-height: 70px;
 	}
 	h1>span {
 		background-size: 100% 3px;
