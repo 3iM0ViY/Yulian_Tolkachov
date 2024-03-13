@@ -320,32 +320,31 @@
 
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
-    const headerOpener = document.getElementById("header_opener");
-    const header = document.getElementById("header");
-    const clickableElements = document.querySelectorAll("nav a, .nav_name a");
+	    const headerOpener = document.getElementById("header_opener");
+	    const header = document.getElementById("header");
+	    const clickableElements = document.querySelectorAll("nav a, .nav_name a");
 
-    headerOpener.addEventListener("click", function() {
-        toggleHeader();
-    });
+	    headerOpener.addEventListener("click", function() {
+	        toggleHeader();
+	    });
 
-    Array.from(clickableElements).forEach(element => {
-        element.addEventListener("click", function() {
-            if(window.innerWidth <= 750) {
-                closeHeader();
-            }
-        });
-    });
+	    Array.from(clickableElements).forEach(element => {
+	        element.addEventListener("click", function() {
+	            if(window.innerWidth <= 750) {
+	                closeHeader();
+	            }
+	        });
+	    });
 
-    function toggleHeader() {
-        headerOpener.classList.toggle("opened");
-        header.classList.toggle("opened");
-    }
-    function closeHeader() {
-        headerOpener.classList.remove("opened");
-        header.classList.remove("opened");
-    }
-});
-
+	    function toggleHeader() {
+	        headerOpener.classList.toggle("opened");
+	        header.classList.toggle("opened");
+	    }
+	    function closeHeader() {
+	        headerOpener.classList.remove("opened");
+	        header.classList.remove("opened");
+	    }
+	});
 </script>
 <script>
 	const parallax = document.querySelectorAll(".parallax");
@@ -409,6 +408,25 @@
 	changeLinkState();
 	window.addEventListener('scroll', changeLinkState);
 
+</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+	    const sections = document.querySelectorAll('section');
+	    const navLinks = document.querySelectorAll('nav a');
+	    const navPageNumber = document.querySelector('.nav_page > span:first-child');
+
+	    function changeLinkState() {
+	        let index = sections.length;
+
+	        while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+	        navLinks.forEach((link) => link.classList.remove('active'));
+	        navLinks[index].classList.add('active');
+	        navPageNumber.textContent = String(index + 1).padStart(2, '0');
+	    }
+
+	    changeLinkState();
+	    window.addEventListener('scroll', changeLinkState);
+	});
 </script>
 </body>
 </html>
