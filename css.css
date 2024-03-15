@@ -504,7 +504,7 @@ h1>span:hover {
 	align-items: center;
 	padding: 30px 0;
 }
-.blog_element>a{
+.blog_title{
 	font-size: 26px;
 	margin-right: 30px;
 	color: var(--black);
@@ -512,7 +512,7 @@ h1>span:hover {
 	max-width: 75%;
 	width: 100%;
 }
-.blog_element>a:hover{
+.blog_title:hover{
 	color: var(--accent);
 }
 .blog_info{
@@ -526,6 +526,7 @@ h1>span:hover {
 }
 .blog_info span:last-child{
 	color: var(--accent);
+	text-transform: uppercase;
 }
 
 .contact{
