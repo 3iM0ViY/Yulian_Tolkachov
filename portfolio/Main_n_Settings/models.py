@@ -27,7 +27,7 @@ class Section(models.Model):
 
 	class Meta:
 		verbose_name = 'Секція'
-		verbose_name_plural = 'Сеції'
+		verbose_name_plural = 'Секції'
 		ordering = ['title']
 
 class Contacts(models.Model):
