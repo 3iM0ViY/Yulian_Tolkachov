@@ -24,6 +24,7 @@ class PhotoAdmin(admin.ModelAdmin):
 	list_display_links = ("id",)
 	list_filter = ("created_at",)
 	readonly_fields = ("created_at", "get_photo",)
+	show_facets = admin.ShowFacets.ALWAYS
 
 	def get_photo(self, obj):
 		if obj.photo:
@@ -39,8 +40,10 @@ class WorkAdmin(OrderedModelAdmin):
 	list_display_links = ("id",)
 	search_fields = ("title", "subtitle", "job", "client", "content",)
 	list_filter = ("is_main", "is_published",)
+	prepopulated_fields = {'slug': ('title',)}
 	readonly_fields = ("get_photo", "slide")
-	fields = ("title", "subtitle", "photo", "photo_minified", "get_photo", "alt_text", "date_start", "date_end", "client", "job", "content", "is_main", "is_published")
+	fields = ("title", "slug", "subtitle", "photo", "photo_minified", "get_photo", "alt_text", "date_start", "date_end", "client", "job", "content", "is_main", "is_published")
+	show_facets = admin.ShowFacets.ALWAYS
 
 	def get_photo(self, obj):
 		if obj.photo:

@@ -1,0 +1,12 @@
+<!-- templates/admin/index.html -->
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div id="content-main">
+    {% include "admin/app_list.html" with app_list=app_list show_changelinks=True %}
+    <h2>Main_N_Settings</h2>
+    {% include "admin/app_list.html" with app_list=main_n_settings_app_list show_changelinks=True %}
+    <h2>Work</h2>
+    {% include "admin/app_list.html" with app_list=work_app_list show_changelinks=True %}
+</div>
+{% endblock %}

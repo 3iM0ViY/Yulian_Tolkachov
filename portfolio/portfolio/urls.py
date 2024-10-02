@@ -18,11 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from Main_n_Settings.admin import main_n_settings_admin_site, work_admin_site
+from Main_n_Settings.views import custom_admin_index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('main_n_settings_admin/', main_n_settings_admin_site.urls),
+    path('work_admin/', work_admin_site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('', include('Main_n_Settings.urls'))
+    path('', include('Main_n_Settings.urls', namespace="home")),
+    path('portfolio/', include("Work.urls", namespace="portfolio"))
 ]
 
 if settings.DEBUG:
