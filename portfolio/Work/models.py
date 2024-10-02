@@ -18,6 +18,7 @@ class Photo(models.Model):
 
 class Work(OrderedModel):
 	title = models.CharField(verbose_name='Заголовок', max_length=150)
+	slug = models.SlugField(verbose_name='Слаг', max_length=150, null=True)
 	subtitle = models.CharField(verbose_name="Підзаголовок", max_length=250, blank=True)
 	photo = models.ImageField(verbose_name='Фото', upload_to="", blank=True, null=True)
 	photo_minified = models.ImageField(verbose_name='Стиснуте фото', upload_to="", null=True, blank=True)
@@ -30,6 +31,7 @@ class Work(OrderedModel):
 	slide = models.ManyToManyField(Photo, blank=True, verbose_name="Фото")
 	is_main = models.BooleanField(verbose_name='На головну', default=True)
 	is_published = models.BooleanField(verbose_name='Опублікувати', default=True)
+	updated = models.DateTimeField(auto_now=True, null=True)
 
 	# to do: категорії...
 
@@ -46,6 +48,7 @@ class CarouselItem(models.Model):
 	photo = models.ForeignKey(Photo, on_delete=models.CASCADE, verbose_name='Фото карусель')
 	order = models.IntegerField(verbose_name='Черга', default=0)
 	timestamp = models.DateTimeField(verbose_name='Створено', auto_now_add=True)
+	
 	class Meta:
 		verbose_name = 'Фото'
 		verbose_name_plural = 'Фото'
