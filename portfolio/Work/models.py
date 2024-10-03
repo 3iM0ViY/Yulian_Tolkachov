@@ -1,5 +1,6 @@
 from django.db import models
 from ordered_model.models import OrderedModel
+from django.urls import reverse
 # Create your models here.
 
 class Photo(models.Model):
@@ -42,6 +43,9 @@ class Work(OrderedModel):
 		verbose_name = 'Проєкт'
 		verbose_name_plural = 'Проєкти'
 		ordering = ['-order', '-date_end', "title"]
+
+	def get_absolute_url(self):
+		return reverse('portfolio:work_detail', args=[self.slug,])
 
 class CarouselItem(models.Model):
 	work = models.ForeignKey(Work, on_delete=models.CASCADE, verbose_name="Робота")

@@ -144,41 +144,22 @@
 							Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
 						</div>
 						<div class="portfolio_grid">
+
+							{% for work in works %}
 							<div class="portfolio_grid_block">
-								<a href="portfolio" class="portfolio_grid_caption">
-									<p class="portfolio_title">hi</p>
-									<p>hi</p>
+								<a href="{{ work.get_absolute_url }}" class="portfolio_grid_caption">
+									<p class="portfolio_title">{{ work.title }}</p>
+									<p>{{ work.subtitle }}</p>
 								</a>
-								<div class="portfolio_grid_img"><img src="{% static 'img/red.png' %}" alt=""></div>
+								<div class="portfolio_grid_img">
+									<picture alt="{{ work.alt_text }}">
+										<source srcset="{{ work.photo.url }}" media="(min-width:800px)">
+										<img src="{{ work.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ work.alt_text }}">
+									</picture>
+								</div>
 							</div>
-							<div class="portfolio_grid_block">
-								<a href="portfolio" class="portfolio_grid_caption">
-									<p class="portfolio_title">hi</p>
-									<p>hi</p>
-								</a>
-								<div class="portfolio_grid_img"><img src="{% static 'img/vertical.jpg' %}" alt=""></div>
-							</div>
-							<div class="portfolio_grid_block">
-								<a href="portfolio" class="portfolio_grid_caption">
-									<p class="portfolio_title">hi</p>
-									<p>hi</p>
-								</a>
-								<div class="portfolio_grid_img"><img src="{% static 'img/red2.png' %}" alt=""></div>
-							</div>
-							<div class="portfolio_grid_block">
-								<a href="portfolio" class="portfolio_grid_caption">
-									<p class="portfolio_title">hi</p>
-									<p>hi</p>
-								</a>
-								<div class="portfolio_grid_img"><img src="{% static 'img/red2.png' %}" alt=""></div>
-							</div>
-							<div class="portfolio_grid_block">
-								<a href="portfolio" class="portfolio_grid_caption">
-									<p class="portfolio_title">hi</p>
-									<p>hi</p>
-								</a>
-								<div class="portfolio_grid_img"><img src="{% static 'img/red.png' %}" alt=""></div>
-							</div>
+							{% endfor %}
+
 						</div>
 
 					</div>
@@ -188,7 +169,7 @@
 			<section class="section blog" id="blog">
 				<div class="wrap about_wrap">
 					<div class="blog_content section_content">
-						<h2>Development</h2>
+						<h2>Blog</h2>
 						<div class="section_description">
 							Further sections of this website and my portfolio are curently in development.
 						</div>
