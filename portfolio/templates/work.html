@@ -1,88 +1,58 @@
+{% extends "index.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mine</title>
+
+{% block title %}
+	<title>{{ work.title }}</title>
+{% endblock %}
+{% block styles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'work.css' %}">
-</head>
-<body>
-	<div class="container">
-		<div id="header_opener" class="header_opener">
-			<span class="header_opener_cover">
-				<span></span>
-			</span>
-		</div>
-		<header id="header">
-			<div class="main_nav">
-				<div class="nav_page">
-					<span>01</span><span class="step">/</span><span>07</span>
-				</div>
-				<div class="nav_name"><a href="index.html">Yulian Tolkachov</a></div>
-				<nav>
-					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="#services">Services</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#blog">Blog</a></li>
-						<li><a href="#skills">Skills</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</nav>
-				<ul class="nav_social">
-					<li><a href="#social">LK.</a></li>
-					<li><a href="#social">IN.</a></li>
-					<li><a href="#social">TG.</a></li>
-				</ul>
-			</div>
-		</header>
+{% endblock %}
 
-		<main>
-			<section class="section blog" id="blog">
-				<div class="wrap about_wrap">
-					<div class="blog_content section_content">
-						<h2 class="blog_title">{{ work.title }}</h2>
-						<div class="blog_info"><span>{{ work.job }}</span><span>{{ work.date_start }} - {{ work.date_end }}</span><span>{{ work.client }}</span></div>
-						<div class="ism-slider" data-transition_type="fade" data-buttons="false" id="my-slider">
-							<ol>
-								{% for item in carousel %}
-								<li>
-									<picture alt="{{ item.photo.alt_text }}">
-										<source srcset="{{ item.photo.photo.url }}" media="(min-width:800px)">
-										<img src="{{ item.photo.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ item.photo.alt_text }}">
-									</picture>
-								</li>
-								{% endfor %}
-							</ol>
-						</div>
-						<!-- <div class="ism-slider" data-transition_type="fade" data-play_type="once-rewind" id="slider">
-							<ol>
-								{% for item in main %}
-								<li>
-									<picture alt="{{ item.alt_text }}">
-										<source srcset="{{ item.photo.url }}" media="(min-width:800px)">
-										<img src="{{ item.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ item.alt_text }}">
-									</picture>
-								</li>
-								{% endfor %}
-							</ol>
-						</div> -->
-						<div class="blog_blog">
-							{{ work.content|safe }}
-						</div>
-					</div>
-				</div>
-			</section>
-			<ul class="footer nav_social">
-				<li><a href="#social">LK.</a></li>
-				<li><a href="#social">IN.</a></li>
-				<li><a href="#social">TG.</a></li>
-			</ul>
-		</main>
+{% block main %}
+<section class="section blog" id="blog">
+	<div class="wrap about_wrap">
+		<div class="blog_content section_content">
+			<h2 class="blog_title">{{ work.title }}</h2>
+			<div class="blog_info"><span>{{ work.job }}</span><span>{{ work.date_start }} - {{ work.date_end }}</span><span>{{ work.client }}</span></div>
+			<div class="ism-slider" data-transition_type="fade" data-buttons="false" id="my-slider">
+				<ol>
+					{% for item in carousel %}
+					<li>
+						<picture alt="{{ item.photo.alt_text }}">
+							<source srcset="{{ item.photo.photo.url }}" media="(min-width:800px)">
+							<img src="{{ item.photo.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ item.photo.alt_text }}">
+						</picture>
+					</li>
+					{% endfor %}
+				</ol>
+			</div>
+			<!-- <div class="ism-slider" data-transition_type="fade" data-play_type="once-rewind" id="slider">
+				<ol>
+					{% for item in main %}
+					<li>
+						<picture alt="{{ item.alt_text }}">
+							<source srcset="{{ item.photo.url }}" media="(min-width:800px)">
+							<img src="{{ item.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ item.alt_text }}">
+						</picture>
+					</li>
+					{% endfor %}
+				</ol>
+			</div> -->
+			<div class="blog_blog">
+				{{ work.content|safe }}
+			</div>
+		</div>
 	</div>
+</section>
+<!-- <ul class="footer nav_social">
+	<li><a href="#social">LK.</a></li>
+	<li><a href="#social">IN.</a></li>
+	<li><a href="#social">TG.</a></li>
+</ul> -->
+{% endblock %}
+
+{% block scripts %}
 <script>
 	(function(){function e(b,c){this.selector=null;c?this.nodes=c:"string"==typeof b?(this.selector=b,this.nodes=document.querySelectorAll(b)):this.nodes=[b];this.length=this.nodes.length;this.el=this.nodes[0]}function d(b){return new e(b)}function k(b,c){function l(a,c,d){a=a||{};e();!1!==c&&r();N=n=f=null;p=-1;C=z=D=E=null;A=!1;B=null;F=!1;q=null;k(a);u();S(f.transition_type,!0);n.find("#"+b+" .ism-caption").css("visibility","hidden");T();ca();x(f.play_type);da();setTimeout(function(){!0!==d&&h()},
 1E3)}function e(){d("#"+b+"-ism-loading-mask").remove();var a=document.createElement("DIV");a.id=b+"-ism-loading-mask";a.style.position="absolute";a.style.zIndex=10;a.style.top=0;a.style.bottom=0;a.style.left=0;a.style.right=0;a.style.backgroundColor="#eee";d("#"+b).el.appendChild(a)}function h(){d("#"+b).show();1==d("#"+b+"-ism-loading-mask").length&&d("#"+b+"-ism-loading-mask").fadeOut(400,function(){d("#"+b+"-ism-loading-mask").remove();O(0);U(0)})}function k(a){for(var c in G){var g=typeof G[c];
@@ -204,5 +174,4 @@ window[u[v]+"CancelRequestAnimationFrame"];m||(m=function(a){return setTimeout(a
 		window.addEventListener('scroll', changeLinkState);
 	});
 </script>
-</body>
-</html>
+{% endblock %}

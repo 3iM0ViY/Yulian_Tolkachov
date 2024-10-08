@@ -4,12 +4,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% block title %}
 	<title>Mine</title>
+	{% endblock %}
+	{% block styles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
+	{% endblock %}
 </head>
 <body>
 	<div class="container">
 		
+		{% block header %}
 		<div id="header_opener" class="header_opener">
 			<span class="header_opener_cover">
 				<span></span>                   
@@ -20,16 +25,16 @@
 				<div class="nav_page">
 					<span>01</span><span class="step">/</span><span>07</span>
 				</div>
-				<div class="nav_name"><a href="index">Yulian Tolkachov</a></div>
+				<div class="nav_name"><a href="{% url 'home:home' %}">Yulian Tolkachov</a></div>
 				<nav>
 					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="#services">Services</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#portfolio">Portfolio</a></li>
-						<li><a href="#blog">Blog</a></li>
-						<li><a href="#skills">Skills</a></li>
-						<li><a href="#contact">Contact</a></li>
+						<li><a href="{% url 'home:home' %}">Home</a></li>
+						<li><a href="{% url 'home:home' %}#services">Services</a></li>
+						<li><a href="{% url 'home:home' %}#about">About</a></li>
+						<li><a href="{% url 'home:home' %}#portfolio">Portfolio</a></li>
+						<li><a href="{% url 'home:home' %}#blog">Blog</a></li>
+						<li><a href="{% url 'home:home' %}#skills">Skills</a></li>
+						<li><a href="{% url 'home:home' %}#contact">Contact</a></li>
 					</ul>
 				</nav>
 				<ul class="nav_social">
@@ -39,8 +44,9 @@
 				</ul>
 			</div>
 		</header>
-
+		{% endblock %}
 		<main>
+			{% block main %}
 			<section class="section home" id="home">
 				<div class="wrap home_wrap">
 					<h1>Hello, <br>I'm <span>Yulian Tolkachov</span></h1>
@@ -295,11 +301,11 @@
 					</div>
 				</div>
 			</section>
-
-
+			{% endblock %}
 		</main>
 	</div>
 
+{% block scripts %}
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
 		const headerOpener = document.getElementById("header_opener");
@@ -410,5 +416,7 @@
 		window.addEventListener('scroll', changeLinkState);
 	});
 </script>
+{% endblock %}
+
 </body>
 </html>
