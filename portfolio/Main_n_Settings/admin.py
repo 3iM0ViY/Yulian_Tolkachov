@@ -2,13 +2,13 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from django import forms
-from ckeditor.widgets import CKEditorWidget
+from django_ckeditor_5.widgets import CKEditor5Widget
 
 from .models import *
 # Register your models here.
 
 class SectionAdminForm(forms.ModelForm):
-	text = forms.CharField(widget=CKEditorWidget())
+	text = forms.CharField(widget=CKEditor5Widget())
 	class Meta():
 		model = Section
 		fields = "__all__"
