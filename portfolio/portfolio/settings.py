@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'Main_n_Settings.apps.MainNSettingsConfig',
     'Work.apps.WorkConfig',
     'django_ckeditor_5',
+    "ordered_model",
 ]
 
 MIDDLEWARE = [

@@ -2,7 +2,9 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from django import forms
+from django.forms import Textarea #розмір поля
 from django_ckeditor_5.widgets import CKEditor5Widget
+from ordered_model.admin import OrderedModelAdmin
 
 from .models import *
 # Register your models here.
@@ -34,9 +36,11 @@ class MainAdmin(admin.ModelAdmin):
 
 	get_photo.short_description = "Фото"
 
-class SectionAdmin(admin.ModelAdmin):
+class SectionAdmin(OrderedModelAdmin):
 	form = SectionAdminForm
-	list_display = ("id", "title", "is_published")
+	list_display = ("id", "title", "subtitle", 'order', 'move_up_down_links', "is_published")
+	readonly_fields = ('order', 'move_up_down_links',)
+	ordering = ('order',)
 	list_editable = ("title", "is_published")
 	list_display_links = ("id",)
 
@@ -55,8 +59,11 @@ class ServicesAdmin(admin.ModelAdmin):
 
 class YearsAdmin(admin.ModelAdmin):
 	form = YearsAdminForm
-	list_display = ("id", "year", "is_published")
-	list_editable = ("year", "is_published")
+	formfield_overrides = {
+        models.TextField: {'widget': Textarea(attrs={'rows':3, 'cols':160})},
+    } #розмір поля
+	list_display = ("id", "year", "content", "is_published")
+	list_editable = ("year", "content", "is_published")
 	list_display_links = ("id",)
 
 class SkillsAdmin(admin.ModelAdmin):

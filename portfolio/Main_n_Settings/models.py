@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+from ordered_model.models import OrderedModel
 from django.core.validators import MinValueValidator, MaxValueValidator
 import datetime
 
@@ -29,7 +29,7 @@ class Main(models.Model):
 		verbose_name = 'Головна сторінка'
 		verbose_name_plural = 'Головні сторінки'
 
-class Section(models.Model):
+class Section(OrderedModel):
 	title = models.CharField(verbose_name='Назва', max_length=150)
 	subtitle = models.CharField(verbose_name="Підпис", max_length=250, blank=True)
 	text = models.TextField(verbose_name='Опис', blank=True)
@@ -41,7 +41,7 @@ class Section(models.Model):
 	class Meta:
 		verbose_name = 'Секція'
 		verbose_name_plural = 'Секції'
-		ordering = ['title']
+		ordering = ["order"]
 
 class Services(models.Model):
 	title = models.CharField(verbose_name='Назва', max_length=150)
@@ -65,7 +65,7 @@ class Years(models.Model):
 	is_published = models.BooleanField(verbose_name='Опублікувати', default=True)
 
 	def __str__(self):
-		return str(self.title) + " рік"
+		return str(self.year) + " рік"
 
 	class Meta:
 		verbose_name = 'Рік'
