@@ -10,6 +10,7 @@
 	{% block styles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
 	{% endblock %}
+	<link rel="icon" type="image/x-icon" href="{{main.icon.url}}">
 </head>
 <body>
 	<div class="container">
@@ -29,19 +30,20 @@
 				<nav>
 					<ul>
 						<li><a href="{% url 'home:home' %}">Home</a></li>
-						<li><a href="{% url 'home:home' %}#services">Services</a></li>
-						<li><a href="{% url 'home:home' %}#about">About</a></li>
-						<li><a href="{% url 'home:home' %}#portfolio">Portfolio</a></li>
-						<li><a href="{% url 'home:home' %}#blog">Blog</a></li>
-						<li><a href="{% url 'home:home' %}#skills">Skills</a></li>
-						<li><a href="{% url 'home:home' %}#contact">Contact</a></li>
+
+						{% for section in sections_list %}
+						<li><a href="{% url 'home:home' %}#{{section.slug}}">{{section.title}}</a></li>
+						{% endfor %}
+
 					</ul>
 				</nav>
+
 				<ul class="nav_social">
-					<li><a href="#social">LK.</a></li>
-					<li><a href="#social">IN.</a></li>
-					<li><a href="#social">TG.</a></li>
+					{% for social in socials_list %}
+					<li><a href="{{social.url}}" target="_blank">{{social.icon}}</a></li>
+					{% endfor %}
 				</ul>
+
 			</div>
 		</header>
 		{% endblock %}
@@ -50,7 +52,10 @@
 			<section class="section home" id="home">
 				<div class="wrap home_wrap">
 					<h1>Hello, <br>I'm <span>Yulian Tolkachov</span></h1>
-					<img src="{% static 'img/portrait.jpg' %}" alt="">
+					<picture alt="{{ main.alt_text }}">
+						<source srcset="{{ main.photo.url }}" media="(min-width:800px)">
+						<img src="{{ main.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ main.alt_text }}">
+					</picture>
 					<a class="home_link">	
 						<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M7.71178 17.2976L24.7944 35.5602L41.877 17.2976" stroke="#F44647" stroke-width="8"/>
@@ -59,95 +64,89 @@
 				</div>
 			</section>
 
-			<section class="section services" id="services">
+			<section class="section services" id="{{ sections.services.slug }}">
 				<div class="wrap services_wrap">
 					<div class="services_content section_content">
-						<h2>services</h2>
+						<h2>{{ sections.services.title }}</h2>
 						<div class="section_description">
-							Lorem ipsum dolor sit amet consectetu adipiscing elit viverra tristique placerat
+							{{ sections.services.subtitle }}
 						</div>
 						<div class="section_content">
-							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, asperiores iste placeat iure molestias incidunt ad? Iusto, quia saepe ipsam omnis consequatur inventore dolorum illum modi. Doloremque, debitis. Ullam, vel?</p>
-							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut aut quo expedita necessitatibus modi, <a href="#in_text">doloribus provident at</a>, quas asperiores vel nulla soluta reprehenderit saepe, aliquam consequuntur. Beatae optio ipsum excepturi?</p>
+							{{ sections.services.text|safe }}
 						</div>
 					</div>
 					<ul class="services_cv section_content_slide-right parallax left">
-						<li><a href="#services_cv">Download CV</a></li>
-						<li><a href="#services_cv">My Portfolio</a></li>
+						<li><a href="{{main.cv.url}}" download>Download CV</a></li>
+						<li><a href="{{main.portfolio.url}}" download>My Portfolio</a></li>
 					</ul>
 					<ul class="services_cv services_cv_mobile">
-						<li><a href="#services_cv">Download CV</a></li>
-						<li><a href="#services_cv">My Portfolio</a></li>
+						<li><a href="{{main.cv.url}}" download>Download CV</a></li>
+						<li><a href="{{main.portfolio.url}}" download>My Portfolio</a></li>
 					</ul>
+
 					<div class="services_grid">
+						{% for service in services_list %}
 						<div class="services_grid_item">
-							<img src="{% static 'img/horizontal.jpg' %}" alt="">
-							<h4>Design</h4>
-							<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit.</p>
+							<picture alt="{{ service.alt_text }}">
+								<source srcset="{{ service.photo.url }}" media="(min-width:800px)">
+								<img src="{{ service.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ service.alt_text }}">
+							</picture>
+							<h4>{{service.title}}</h4>
+							<p>{{service.subtitle}}</p>
 						</div>
-						<div class="services_grid_item">
-							<img src="{% static 'img/horizontal.jpg' %}" alt="">
-							<h4>Develop</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
-						<div class="services_grid_item">
-							<img src="{% static 'img/horizontal.jpg' %}" alt="">
-							<h4>Write</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
-						<div class="services_grid_item">
-							<img src="{% static 'img/horizontal.jpg' %}" alt="">
-							<h4>Promote</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
+						{% endfor %}
 					</div>
+
 				</div>
 			</section>
 
-			<section class="section about" id="about">
+			<section class="section about" id="{{ sections.about.slug }}">
 				<div class="wrap about_wrap">
-					<h2>About</h2>
+					<h2>{{ sections.about.title }}</h2>
 					<div class="section_description">
-						Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
+						{{ sections.about.subtitle }}
 					</div>
 					<div class="section_content">
-						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, asperiores iste placeat iure molestias incidunt ad? Iusto, quia saepe ipsam omnis consequatur inventore dolorum illum modi. Doloremque, debitis. Ullam, vel?</p>
-						<img class="section_content_slide parallax_right right" src="{% static 'img/horizontal.jpg' %}" alt="">
-						<img class="section_content_image_mobile" src="{% static 'img/horizontal.jpg' %}" alt="">
+						<picture alt="{{ main.alt_banner_text }}">
+							<source srcset="{{ main.banner.url }}" media="(min-width:800px)">
+							<img class="section_content_slide parallax_right right" src="{{ main.banner_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ main.alt_banner_text }}">
+						</picture>
+						<picture alt="{{ main.alt_banner_text }}">
+							<source srcset="{{ main.banner.url }}" media="(min-width:800px)">
+							<img class="section_content_image_mobile" src="{{ main.banner_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ main.alt_banner_text }}">
+						</picture>
 						<div class="about_contacts parallax_top">
 							<ul>
 								<li>
 									<h6>Email</h6>
-									<a href="#contacts">yulian.tolkachov@gmail.com</a>
+									<a href="mailto:{{main.email}}">{{main.email}}</a>
 								</li>
 								<li>
 									<h6>Role</h6>
-									<a href="#contacts">Web programmer</a>
+									<a href="#{{ sections.contact.slug }}">{{main.role}}</a>
 								</li>
 								<li>
 									<h6>Phone</h6>
-									<a href="#contacts">+380 66 791 33 01</a>
+									<a href="tel:{{main.phone}}">{{main.phone}}</a>
 								</li>
 							</ul>
 						</div>
 						<div class="about_text">
-							<p> Nam ultrices ultrices nec tortor pulvinar fermentum mi. Sociis sit tristique sagittis, mauris volutpat estera phasellus. Varius nec orci, quam augue lorem lines pellentesque non id. Tristique amet volutpat nunc euismod. Mauris <a href="#">felis at quam</a> sollicitudin est sempe vulputate id in nullam. Purus tincidunt maga ut turpis eu, eu enim. Nisl porttitor elit risus velit urna morbit mauris at proin laoreet lobortis urna aliquam setera fermentum sit iaculis vitae hendrerit et. Arcu ac est dictum lorem ispum dolor sit amet nunc usrus seio.</p>
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi repellat similique necessitatibus accusamus perferendis, ut explicabo quas modi eum eos minus mollitia odio et sunt illum voluptate cumque facere totam!</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quam ducimus perspiciatis eos ea quae facilis doloremque corporis, odit est sit exercitationem, temporibus unde dolor consectetur magnam dolorum at fuga! Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+							{{ sections.about.text|safe }}
 							<div class="about_signature">
-								<img src="{% static 'img/signature.png' %}" alt="Signature (on ssd)">
+								<img src="{{main.signature.url}}" alt="My signature">
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="section portfolio" id="portfolio">
+			<section class="section portfolio" id="{{ sections.portfolio.slug }}">
 				<div class="wrap about_wrap">
 					<div class="portfolio_content section_content">
-						<h2>Portfolio</h2>
+						<h2>{{ sections.portfolio.title }}</h2>
 						<div class="section_description">
-							Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
+							{{ sections.portfolio.subtitle }}
 						</div>
 						<div class="portfolio_grid">
 
@@ -172,12 +171,12 @@
 				</div>
 			</section>
 
-			<section class="section blog" id="blog">
+			<section class="section blog" id="{{ sections.blog.slug }}">
 				<div class="wrap about_wrap">
 					<div class="blog_content section_content">
-						<h2>Blog</h2>
+						<h2>{{ sections.blog.title }}</h2>
 						<div class="section_description">
-							Further sections of this website and my portfolio are curently in development.
+							{{ sections.blog.subtitle }}
 						</div>
 						<ul>
 							<li class="blog_element">
@@ -206,90 +205,47 @@
 				</div>
 			</section>
 
-			<section class="section skills" id="skills">
+			<section class="section skills" id="{{ sections.skills.slug }}">
 				<div class="wrap about_wrap">
 					<div class="skills_content section_content">
-						<h2>Skills</h2>
+						<h2>{{ sections.skills.title }}</h2>
 						<div class="section_description">
-							Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
+							{{ sections.skills.subtitle }}
 						</div>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt alias provident reprehenderit recusandae voluptas vitae iusto, nulla quo autem dolor in, maxime deserunt nam, veritatis illo eligendi assumenda nemo.</p>
+						{{ sections.skills.text|safe }}
+
 						<ul class="skills_group">
+							{% for year in years_list %}
 							<li>
-								<span class="skills_date">2024</span>
-								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit amet consectetur adipisicing, elit. Assumenda placeat vitae voluptatum expedita nam necessitatibus cum alias soluta ut! Cum soluta quos magnam harum aut nam eius eaque accusamus! Pariatur.</p>
+								<span class="skills_date">{{year.year}}</span>
+								<p class="skills_text">{{year.content|safe}}</p>
 							</li>
-							<li>
-								<span class="skills_date">2024</span>
-								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia sint doloremque explicabo veniam cupiditate consequuntur error atque harum consequatur. Quis tempora, assumenda suscipit modi dolorem quia, nihil nobis. Quos, tenetur!</p>
-							</li>
-							<li>
-								<span class="skills_date">2024</span>
-								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius pariatur id ipsum veniam temporibus, voluptatum in a, repellat quisquam ipsa ut illo soluta totam quod cumque aliquam, culpa facilis tenetur.</p>
-							</li>
+							{% endfor %}
 						</ul>
+
 						<ul class="skills_progress">
+							{% for skill in skills_list %}
 							<li>
-								<span class="skills_name">Coding</span>
+								<span class="skills_name">{{skill.title}}</span>
 								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
+									<div class="skill_fill_progress" data-fill="{{skill.percentage}}%" style="width: {{skill.percentage}}%;"></div>
 								</div>
 							</li>
-							<li>
-								<span class="skills_name">Coding</span>
-								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="10%" style="width: 90%;"></div>
-								</div>
-							</li>
-							<li>
-								<span class="skills_name">Coding</span>
-								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="10%" style="width: 24%;"></div>
-								</div>
-							</li>
-							<li>
-								<span class="skills_name">Coding</span>
-								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="10%" style="width: 20%;"></div>
-								</div>
-							</li>
-							<li>
-								<span class="skills_name">Coding</span>
-								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
-								</div>
-							</li>
-							<li>
-								<span class="skills_name">Coding</span>
-								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="10%" style="width: 50%;"></div>
-								</div>
-							</li>
-							<li>
-								<span class="skills_name">Coding</span>
-								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
-								</div>
-							</li>
-							<li>
-								<span class="skills_name">Coding</span>
-								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
-								</div>
-							</li>
+							{% endfor %}
 						</ul>
+
 					</div>
 				</div>
 			</section>
 
-			<section class="section contact" id="contact">
+			<section class="section contact" id="{{ sections.contact.slug }}">
 				<div class="wrap about_wrap">
 					<div class="contact_content section_content">
-						<h2>Contact</h2>
+						<h2>{{ sections.contact.title }}</h2>
 						<div class="section_description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+							{{ sections.contact.subtitle }}
 						</div>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt alias provident reprehenderit recusandae voluptas vitae iusto, nulla quo autem dolor in, maxime deserunt nam, veritatis illo eligendi assumenda nemo.</p>
+						{{ sections.contact.text|safe }}
 						<form action="POST">
 							<input id="name" type="text" name="name" placeholder="NAME">
 							<input id="contact-email" type="email" name="email" placeholder="EMAIL">

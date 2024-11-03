@@ -27,18 +27,6 @@
 					{% endfor %}
 				</ol>
 			</div>
-			<!-- <div class="ism-slider" data-transition_type="fade" data-play_type="once-rewind" id="slider">
-				<ol>
-					{% for item in main %}
-					<li>
-						<picture alt="{{ item.alt_text }}">
-							<source srcset="{{ item.photo.url }}" media="(min-width:800px)">
-							<img src="{{ item.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ item.alt_text }}">
-						</picture>
-					</li>
-					{% endfor %}
-				</ol>
-			</div> -->
 			<div class="blog_blog">
 				{{ work.content|safe }}
 			</div>

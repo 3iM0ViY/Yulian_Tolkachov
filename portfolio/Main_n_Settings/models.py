@@ -19,6 +19,9 @@ class Main(models.Model):
 	icon = models.ImageField(verbose_name='Іконка', upload_to="", blank=True, null=True)
 	cv = models.FileField(upload_to="uploads/", blank=True)
 	portfolio = models.FileField(upload_to="uploads/", blank=True)
+	banner = models.ImageField(verbose_name='Банер', upload_to="", blank=True, null=True)
+	banner_minified = models.ImageField(verbose_name='Стиснутий банер', upload_to="", null=True, blank=True)
+	alt_banner_text = models.CharField(verbose_name="Підпис", max_length=250, null=True, blank=True)
 	email = models.EmailField(verbose_name='E-mail', max_length=150, null=True, blank=True)
 	role = models.CharField(verbose_name='Посада', max_length=100, null=True, blank=True)
 	phone = models.CharField(verbose_name='Телефон', max_length=100, null=True, blank=True)
@@ -31,6 +34,7 @@ class Main(models.Model):
 
 class Section(OrderedModel):
 	title = models.CharField(verbose_name='Назва', max_length=150)
+	slug = models.SlugField(verbose_name='Слаг', max_length=150, null=True)
 	subtitle = models.CharField(verbose_name="Підпис", max_length=250, blank=True)
 	text = models.TextField(verbose_name='Опис', blank=True)
 	is_published = models.BooleanField(verbose_name='Опублікувати', default=True)
@@ -83,7 +87,7 @@ class Skills(models.Model):
 	class Meta:
 		verbose_name = 'Скіл'
 		verbose_name_plural = 'Скіли'
-		ordering = ['title']
+		# ordering = ['title']
 
 class Social(models.Model):
 	title = models.CharField(verbose_name='Назва', max_length=150)

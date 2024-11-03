@@ -40,6 +40,7 @@ class SectionAdmin(OrderedModelAdmin):
 	form = SectionAdminForm
 	list_display = ("id", "title", "subtitle", 'order', 'move_up_down_links', "is_published")
 	readonly_fields = ('order', 'move_up_down_links',)
+	prepopulated_fields = {'slug': ('title',)}
 	ordering = ('order',)
 	list_editable = ("title", "is_published")
 	list_display_links = ("id",)
