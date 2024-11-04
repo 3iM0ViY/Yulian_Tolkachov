@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Scrolling Parallax Effect</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 2000px;
+      }
+      .parallax {
+        position: fixed;
+        top: 50%;
+        width: 400px;
+        height: 400px;
+        background-color: #333;
+        color: white;
+        font-size: 32px;
+        text-align: center;
+        line-height: 400px;
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .parallax.left {
+        left: -400px;
+        transform: translateY(-50%) translateX(-50%) translateX(calc(50vw + 200px));
+      }
+      .parallax.right {
+        right: -400px;
+        transform: translateY(-50%) translateX(-50%) translateX(calc(-50vw + 200px));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parallax left">Scroll down to move right</div>
+    <div style="height: 1600px;"></div>
+    <div class="parallax right">Scroll up to move left</div>
+    <script>
+      const parallax = document.querySelectorAll(".parallax");
+      const speed = 0.2;
+      const offset = 200;
+      window.addEventListener("scroll", function() {
+        const y = window.pageYOffset;
+        parallax.forEach(function(el) {
+          const limit = el.classList.contains("left") ? offset : window.innerHeight - offset;
+          if (y > el.offsetTop - window.innerHeight && y < el.offsetTop + el.offsetHeight) {
+            const targetX = (y - el.offsetTop + limit) * speed;
+            const diffX = targetX - el.offsetLeft;
+            el.style.transform = `translateY(-50%) translateX(${Math.min(Math.max(diffX, -400), 400)}px)`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
