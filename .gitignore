@@ -115,4 +115,5 @@ dmypy.json
 
 
 portfolio/staticfiles/
-portfolio/
+portfolio/static/
+portfolio/media

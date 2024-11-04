@@ -32,7 +32,7 @@ class Section(models.Model):
 
 class Contacts(models.Model):
 	email = models.EmailField(verbose_name='E-mail', max_length=150, blank=True)
-	role = models.CharField(verbose_name='Телефон', max_length=100, blank=True)
+	role = models.CharField(verbose_name='Посада', max_length=100, blank=True)
 	phone = models.CharField(verbose_name='Телефон', max_length=100, blank=True)
 	is_published = models.BooleanField(verbose_name='Опублікувати', default=True)
 
