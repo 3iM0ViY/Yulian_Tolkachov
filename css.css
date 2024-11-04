@@ -333,6 +333,8 @@ h1>span:hover {
 	max-width: 270px;
 }
 .services_grid_item img{
+	max-height: 170px;
+	object-fit: cover;
 	width: 100%;
 	width: -moz-available;  
 	width: -webkit-fill-available;
@@ -363,6 +365,7 @@ h1>span:hover {
 	max-width: 900px;	
 	width: 900px;
 	height: 336px;
+	object-fit: cover;
 }
 .section_content_image_mobile{
 	display: none;
@@ -396,6 +399,8 @@ h1>span:hover {
 }
 .about_signature{
 	margin-top: -20px;
+	text-align: end;
+	padding-right: 50px;
 }
 .about_signature img{
 	max-width: 260px;
@@ -815,6 +820,9 @@ form input[type=submit] {
 		max-width: 1000px;
 		width: 100%;
 	}
+	.services_grid_item img{
+		max-height: 250px;
+	}
 	.section_content_slide{
 		display: none;
 	}
@@ -827,6 +835,9 @@ form input[type=submit] {
 		float: none;
 		margin-left: 0;
 		transform: translateY(0);
+	}
+	.about_signature{
+		text-align: center;
 	}
 	.about_signature img {
 		max-width: 200px;
@@ -862,6 +873,12 @@ form input[type=submit] {
 	}
 	.skills_group li:hover .skills_text {
 		transform: translateX(0);
+	}
+	.skills_name{
+		letter-spacing: .5px;
+	}
+	.skill_fill{
+		max-width: 70px;
 	}
 }
 
