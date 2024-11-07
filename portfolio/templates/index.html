@@ -1,0 +1,433 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mine</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
+</head>
+<body>
+	<div class="container">
+		
+		<div id="header_opener" class="header_opener">
+			<span class="header_opener_cover">
+				<span></span>                   
+			</span>
+		</div>
+		<header id="header">
+			<div class="main_nav">
+				<div class="nav_page">
+					<span>01</span><span class="step">/</span><span>07</span>
+				</div>
+				<div class="nav_name"><a href="index">Yulian Tolkachov</a></div>
+				<nav>
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#blog">Blog</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+				<ul class="nav_social">
+					<li><a href="#social">LK.</a></li>
+					<li><a href="#social">IN.</a></li>
+					<li><a href="#social">TG.</a></li>
+				</ul>
+			</div>
+		</header>
+
+		<main>
+			<section class="section home" id="home">
+				<div class="wrap home_wrap">
+					<h1>Hello, <br>I'm <span>Yulian Tolkachov</span></h1>
+					<img src="{% static 'img/portrait.jpg' %}" alt="">
+					<a class="home_link">	
+						<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M7.71178 17.2976L24.7944 35.5602L41.877 17.2976" stroke="#F44647" stroke-width="8"/>
+						</svg>
+					</a>
+				</div>
+			</section>
+
+			<section class="section services" id="services">
+				<div class="wrap services_wrap">
+					<div class="services_content section_content">
+						<h2>services</h2>
+						<div class="section_description">
+							Lorem ipsum dolor sit amet consectetu adipiscing elit viverra tristique placerat
+						</div>
+						<div class="section_content">
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, asperiores iste placeat iure molestias incidunt ad? Iusto, quia saepe ipsam omnis consequatur inventore dolorum illum modi. Doloremque, debitis. Ullam, vel?</p>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut aut quo expedita necessitatibus modi, <a href="#in_text">doloribus provident at</a>, quas asperiores vel nulla soluta reprehenderit saepe, aliquam consequuntur. Beatae optio ipsum excepturi?</p>
+						</div>
+					</div>
+					<ul class="services_cv section_content_slide-right parallax left">
+						<li><a href="#services_cv">Download CV</a></li>
+						<li><a href="#services_cv">My Portfolio</a></li>
+					</ul>
+					<ul class="services_cv services_cv_mobile">
+						<li><a href="#services_cv">Download CV</a></li>
+						<li><a href="#services_cv">My Portfolio</a></li>
+					</ul>
+					<div class="services_grid">
+						<div class="services_grid_item">
+							<img src="{% static 'img/horizontal.jpg' %}" alt="">
+							<h4>Design</h4>
+							<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit.</p>
+						</div>
+						<div class="services_grid_item">
+							<img src="{% static 'img/horizontal.jpg' %}" alt="">
+							<h4>Develop</h4>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						</div>
+						<div class="services_grid_item">
+							<img src="{% static 'img/horizontal.jpg' %}" alt="">
+							<h4>Write</h4>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						</div>
+						<div class="services_grid_item">
+							<img src="{% static 'img/horizontal.jpg' %}" alt="">
+							<h4>Promote</h4>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section about" id="about">
+				<div class="wrap about_wrap">
+					<h2>About</h2>
+					<div class="section_description">
+						Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
+					</div>
+					<div class="section_content">
+						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, asperiores iste placeat iure molestias incidunt ad? Iusto, quia saepe ipsam omnis consequatur inventore dolorum illum modi. Doloremque, debitis. Ullam, vel?</p>
+						<img class="section_content_slide parallax_right right" src="{% static 'img/horizontal.jpg' %}" alt="">
+						<img class="section_content_image_mobile" src="{% static 'img/horizontal.jpg' %}" alt="">
+						<div class="about_contacts parallax_top">
+							<ul>
+								<li>
+									<h6>Email</h6>
+									<a href="#contacts">yulian.tolkachov@gmail.com</a>
+								</li>
+								<li>
+									<h6>Role</h6>
+									<a href="#contacts">Web programmer</a>
+								</li>
+								<li>
+									<h6>Phone</h6>
+									<a href="#contacts">+380 66 791 33 01</a>
+								</li>
+							</ul>
+						</div>
+						<div class="about_text">
+							<p> Nam ultrices ultrices nec tortor pulvinar fermentum mi. Sociis sit tristique sagittis, mauris volutpat estera phasellus. Varius nec orci, quam augue lorem lines pellentesque non id. Tristique amet volutpat nunc euismod. Mauris <a href="#">felis at quam</a> sollicitudin est sempe vulputate id in nullam. Purus tincidunt maga ut turpis eu, eu enim. Nisl porttitor elit risus velit urna morbit mauris at proin laoreet lobortis urna aliquam setera fermentum sit iaculis vitae hendrerit et. Arcu ac est dictum lorem ispum dolor sit amet nunc usrus seio.</p>
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi repellat similique necessitatibus accusamus perferendis, ut explicabo quas modi eum eos minus mollitia odio et sunt illum voluptate cumque facere totam!</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quam ducimus perspiciatis eos ea quae facilis doloremque corporis, odit est sit exercitationem, temporibus unde dolor consectetur magnam dolorum at fuga! Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+							<div class="about_signature">
+								<img src="{% static 'img/signature.png' %}" alt="Signature (on ssd)">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section portfolio" id="portfolio">
+				<div class="wrap about_wrap">
+					<div class="portfolio_content section_content">
+						<h2>Portfolio</h2>
+						<div class="section_description">
+							Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
+						</div>
+						<div class="portfolio_grid">
+							<div class="portfolio_grid_block">
+								<a href="portfolio" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="{% static 'img/red.png' %}" alt=""></div>
+							</div>
+							<div class="portfolio_grid_block">
+								<a href="portfolio" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="{% static 'img/vertical.jpg' %}" alt=""></div>
+							</div>
+							<div class="portfolio_grid_block">
+								<a href="portfolio" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="{% static 'img/red2.png' %}" alt=""></div>
+							</div>
+							<div class="portfolio_grid_block">
+								<a href="portfolio" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="{% static 'img/red2.png' %}" alt=""></div>
+							</div>
+							<div class="portfolio_grid_block">
+								<a href="portfolio" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="{% static 'img/red.png' %}" alt=""></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="section blog" id="blog">
+				<div class="wrap about_wrap">
+					<div class="blog_content section_content">
+						<h2>Development</h2>
+						<div class="section_description">
+							Further sections of this website and my portfolio are curently in development.
+						</div>
+						<ul>
+							<li class="blog_element">
+								<a href="blog" class="blog_title">Testing link 1</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
+							<li class="blog_element">
+								<a href="blog" class="blog_title">Encyclopaedia galactica shores of cosmic</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
+							<li class="blog_element">
+								<a href="blog" class="blog_title">Testing link 1</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
+							<li class="blog_element">
+								<a href="blog" class="blog_title">Testing link 1</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
+							<li class="blog_element">
+								<a href="blog" class="blog_title">Encyclopaedia galactica shores of cosmic</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="section skills" id="skills">
+				<div class="wrap about_wrap">
+					<div class="skills_content section_content">
+						<h2>Skills</h2>
+						<div class="section_description">
+							Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
+						</div>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt alias provident reprehenderit recusandae voluptas vitae iusto, nulla quo autem dolor in, maxime deserunt nam, veritatis illo eligendi assumenda nemo.</p>
+						<ul class="skills_group">
+							<li>
+								<span class="skills_date">2024</span>
+								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit amet consectetur adipisicing, elit. Assumenda placeat vitae voluptatum expedita nam necessitatibus cum alias soluta ut! Cum soluta quos magnam harum aut nam eius eaque accusamus! Pariatur.</p>
+							</li>
+							<li>
+								<span class="skills_date">2024</span>
+								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia sint doloremque explicabo veniam cupiditate consequuntur error atque harum consequatur. Quis tempora, assumenda suscipit modi dolorem quia, nihil nobis. Quos, tenetur!</p>
+							</li>
+							<li>
+								<span class="skills_date">2024</span>
+								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius pariatur id ipsum veniam temporibus, voluptatum in a, repellat quisquam ipsa ut illo soluta totam quod cumque aliquam, culpa facilis tenetur.</p>
+							</li>
+						</ul>
+						<ul class="skills_progress">
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 90%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 24%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 20%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 50%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section class="section contact" id="contact">
+				<div class="wrap about_wrap">
+					<div class="contact_content section_content">
+						<h2>Contact</h2>
+						<div class="section_description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+						</div>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt alias provident reprehenderit recusandae voluptas vitae iusto, nulla quo autem dolor in, maxime deserunt nam, veritatis illo eligendi assumenda nemo.</p>
+						<form action="POST">
+							<input id="name" type="text" name="name" placeholder="NAME">
+							<input id="contact-email" type="email" name="email" placeholder="EMAIL">
+							<input id="subject" type="text" name="subject" placeholder="SUBJECT">
+							<textarea id="message" name="message" placeholder="MESSAGE"></textarea>
+							<input type="submit" value="SEND">
+						</form>
+
+					</div>
+				</div>
+			</section>
+
+
+		</main>
+	</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const headerOpener = document.getElementById("header_opener");
+		const header = document.getElementById("header");
+		const clickableElements = document.querySelectorAll("nav a, .nav_name a");
+
+		headerOpener.addEventListener("click", function() {
+			toggleHeader();
+		});
+
+		Array.from(clickableElements).forEach(element => {
+			element.addEventListener("click", function() {
+				if(window.innerWidth <= 750) {
+					closeHeader();
+				}
+			});
+		});
+
+		function toggleHeader() {
+			headerOpener.classList.toggle("opened");
+			header.classList.toggle("opened");
+		}
+		function closeHeader() {
+			headerOpener.classList.remove("opened");
+			header.classList.remove("opened");
+		}
+	});
+</script>
+<script>
+	const parallax = document.querySelectorAll(".parallax");
+	const speed = 0.2;
+	const offset = 1000;
+	window.addEventListener("scroll", function() {
+		const y = window.pageYOffset;
+		parallax.forEach(function(el) {
+			const limit = el.classList.contains("left") ? offset : window.innerHeight - offset;
+			if (y > el.offsetTop - window.innerHeight && y < el.offsetTop + el.offsetHeight) {
+				const targetX = (y - el.offsetTop + limit) * speed;
+				const diffX = targetX - el.offsetLeft;
+				el.style.transform = `translateY(-50%) translateX(${Math.min(Math.max(diffX, -400), 400)}px)`;
+			}
+		});
+	});
+
+	const parallax_right = document.querySelectorAll(".parallax_right");
+	const speed_right = 0.2;
+	const offset_right = -300;
+	window.addEventListener("scroll", function() {
+		const y = window.pageYOffset;
+		parallax_right.forEach(function(el) {
+			const limit = el.classList.contains("left") ? offset_right : window.innerHeight - offset_right;
+			if (y > el.offsetTop - window.innerHeight && y < el.offsetTop + el.offsetHeight) {
+				const targetX = (y - el.offsetTop + limit) * speed_right;
+				const diffX = targetX - el.offsetLeft;
+				el.style.transform = `translateX(${Math.min(-Math.max(diffX, -400), 400)}px)`;
+			}
+		});
+	});
+
+	const parallax_top = document.querySelectorAll(".parallax_top");
+	const speed_top = 0.2;
+	const offset_top = -2900;
+	window.addEventListener("scroll", function() {
+		const y = window.pageYOffset;
+		parallax_top.forEach(function(el) {
+			const limit = el.classList.contains("left") ? offset_top : window.innerHeight - offset_top;
+			if (y > el.offsetTop - window.innerHeight && y < el.offsetTop + el.offsetHeight) {
+				const targetX = (y - el.offsetTop + limit) * speed_top;
+				const diffX = targetX - el.offsetLeft;
+				el.style.transform = `translateY(${Math.min(Math.max(diffX, -400), -10)}px)`;
+			}
+		});
+	});
+</script>
+<script>
+	const navLinks = document.querySelectorAll('nav a');
+	const sections = document.querySelectorAll('section');
+
+	function changeLinkState() {
+		let index = sections.length;
+
+		while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+			navLinks.forEach((link) => link.classList.remove('active'));
+		navLinks[index].classList.add('active');
+	}
+
+	changeLinkState();
+	window.addEventListener('scroll', changeLinkState);
+
+</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const sections = document.querySelectorAll('section');
+		const navLinks = document.querySelectorAll('nav a');
+		const navPageNumber = document.querySelector('.nav_page > span:first-child');
+
+		function changeLinkState() {
+			let index = sections.length;
+
+			while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+			navLinks.forEach((link) => link.classList.remove('active'));
+			navLinks[index].classList.add('active');
+			navPageNumber.textContent = String(index + 1).padStart(2, '0');
+		}
+
+		changeLinkState();
+		window.addEventListener('scroll', changeLinkState);
+	});
+</script>
+</body>
+</html>
