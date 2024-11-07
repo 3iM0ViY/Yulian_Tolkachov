@@ -112,6 +112,8 @@ img{
 	--blue-deep: #0a0a33;
 
 	--bs-gutter-x: 1.5rem;
+
+	transition: background-color 10s ease-out, color 10s ease-out, display 3.8s ease-out, fill 3.8s ease-out !important;
 }
 
 body {
@@ -207,9 +209,20 @@ header{
 	line-height: 22px;
 	font-weight: 700;
 	margin-bottom: 80px;
+
+	display: flex;
+	align-items: center;
 }
 .nav_page>span:first-of-type{
 	color: var(--blue);
+}
+#theme_switch{
+	background: none;
+	border: none;
+	margin-left: auto;
+}
+#theme_switch svg:last-child{
+	display: none;
 }
 .step{
 	padding: 0 12px;
@@ -993,3 +1006,74 @@ form input[type=submit] {
 	font-weight: 100;
 	font-style: italic;
 }
+
+/* ===================================
+	🌃. Dark Theme (added through js)
+====================================== */
+/*@media (prefers-color-scheme: dark) {
+	:root {
+		--white: #dcdcdc;
+		--black: #f5f5f5;
+		--blue: #3b3b91;
+
+		--blue-lightest: #3f3f75;
+		--blue-lighter: #252553;
+
+
+		--blue-darker: #1b1b4d;
+		--blue-darkest: #0d0d2a;
+		--accent: #ffb900;
+		--accent-muted: #cc9600;
+		--blue-deep: #050517;
+
+		--bs-gutter-x: 1.5rem;
+	}
+	body {
+		color: var(--white);
+		background: linear-gradient(to right, var(--blue-darker) -15%, var(--blue-darkest) 12%, var(--blue-deep) 60%);
+	}
+	a {
+		color: var(--accent);
+	}
+	h1, h2, h3, h4, h5, h6 {
+		color: var(--white);
+	}
+	h1>span{
+		background-image: linear-gradient(var(--accent-muted), var(--accent-muted));
+	}
+
+	#theme_switch svg:first-child{
+		display: none;
+	}
+	#theme_switch svg:last-child{
+		display: block;
+	}
+
+	.nav_page svg{
+		fill: var(--white) !important;
+	}
+	.nav_page>span:first-of-type{
+		color: var(--blue-light);
+	}
+	nav a, .nav_name a, .nav_social a{
+		color: var(--white);
+	}
+	a:hover {
+		color: var(--accent);
+	}
+	.active {
+		color: var(--accent);
+	}
+	nav a.active{
+		color: var(--blue-light) !important;
+	}
+	.services_cv{
+		background-color: var(--blue-lighter);
+	}
+	.skill_fill_progress{
+		background-color: var(--blue-light);
+	}
+	form input, form textarea{
+		color: var(--white) !important;
+	}
+}*/
