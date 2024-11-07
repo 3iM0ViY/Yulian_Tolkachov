@@ -18,7 +18,7 @@ class Main(models.Model):
 	alt_text = models.CharField(verbose_name="Підпис", max_length=250, blank=True)
 	icon = models.ImageField(verbose_name='Іконка', upload_to="", blank=True, null=True)
 	cv = models.FileField(upload_to="uploads/", blank=True)
-	portfolio = models.FileField(upload_to="uploads/", blank=True)
+	portfolio_link = models.URLField(verbose_name='Посилання на портфоліо', blank=True, null=True)
 	banner = models.ImageField(verbose_name='Банер', upload_to="", blank=True, null=True)
 	banner_minified = models.ImageField(verbose_name='Стиснутий банер', upload_to="", null=True, blank=True)
 	alt_banner_text = models.CharField(verbose_name="Підпис", max_length=250, null=True, blank=True)
