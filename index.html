@@ -11,7 +11,7 @@
 		
 		<div id="header_opener" class="header_opener">
 			<span class="header_opener_cover">
-				<span></span>                   
+				<span></span>
 			</span>
 		</div>
 		<header id="header">
@@ -459,6 +459,122 @@
 		changeLinkState();
 		window.addEventListener('scroll', changeLinkState);
 	});
+</script>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const themeSwitch = document.getElementById("theme_switch");
+
+		const darkThemeStyles = `
+			:root {
+				--white: #dcdcdc;
+				--black: #f5f5f5;
+				--blue: #3b3b91;
+				--blue-lightest: #3f3f75;
+				--blue-lighter: #252553;
+				--blue-darker: #1b1b4d;
+				--blue-darkest: #0d0d2a;
+				--accent: #ffb900;
+				--accent-muted: #cc9600;
+				--blue-deep: #050517;
+			}
+			body {
+				color: var(--white);
+				background: linear-gradient(
+					to right,
+					var(--blue-darker) -15%,
+					var(--blue-darkest) 12%,
+					var(--blue-deep) 60%
+				);
+			}
+			a {
+				color: var(--accent);
+			}
+			h1, h2, h3, h4, h5, h6 {
+				color: var(--white);
+			}
+			h1 > span {
+				background-image: linear-gradient(var(--accent-muted), var(--accent-muted));
+			}
+			#theme_switch svg:first-child {
+				display: none;
+			}
+			#theme_switch svg:last-child {
+				display: block;
+			}
+			.nav_page svg {
+				fill: var(--white) !important;
+			}
+			.nav_page>span:first-of-type{
+				color: var(--blue-light);
+			}
+			nav a, .nav_name a, .nav_social a {
+				color: var(--white);
+			}
+			a:hover {
+				color: var(--accent);
+			}
+			.active {
+				color: var(--accent);
+			}
+			nav a.active {
+				color: var(--blue-light) !important;
+			}
+			.services_cv {
+				background-color: var(--blue-lighter);
+			}
+			.skill_fill_progress {
+				background-color: var(--blue-light);
+			}
+			form input, form textarea {
+				color: var(--white) !important;
+			}
+		`;
+
+		// Зміна теми на кнопку
+		function toggleTheme() {
+			const darkTheme = document.getElementById("dark-theme-style");
+
+			if (darkTheme) {
+				darkTheme.remove();
+				localStorage.setItem("theme", "light");
+			} else {
+				const styleElement = document.createElement("style");
+				styleElement.id = "dark-theme-style";
+				styleElement.textContent = darkThemeStyles;
+				document.head.appendChild(styleElement);
+				localStorage.setItem("theme", "dark");
+			}
+		}
+		themeSwitch.addEventListener("click", toggleTheme);
+
+		// Тема при завантажені сторінки
+		const checkIsDarkSchemePreferred = () => window?.matchMedia?.('(prefers-color-scheme:dark)')?.matches ?? false;
+		if (checkIsDarkSchemePreferred()) {
+			const styleElement = document.createElement("style");
+			styleElement.id = "dark-theme-style";
+			styleElement.textContent = darkThemeStyles;
+			document.head.appendChild(styleElement);
+			localStorage.setItem("theme", "dark");
+		}
+
+		// Зміна теми якщо міняється тема браузера та НЕ перезавантажується сторінка
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+		    const newColorScheme = event.matches ? "dark" : "light";
+		    const darkTheme = document.getElementById("dark-theme-style");
+		    if (newColorScheme === "dark"){
+		    	const styleElement = document.createElement("style");
+				styleElement.id = "dark-theme-style";
+				styleElement.textContent = darkThemeStyles;
+				document.head.appendChild(styleElement);
+				localStorage.setItem("theme", "dark");
+		    } else if (darkTheme){
+		    	darkTheme.remove();
+				localStorage.setItem("theme", "light");
+		    }
+		});
+	});
+	
 </script>
 </body>
 </html>
