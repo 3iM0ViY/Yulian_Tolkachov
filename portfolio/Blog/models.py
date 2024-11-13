@@ -53,4 +53,5 @@ class Blog(OrderedModel):
 		ordering = ['-order', '-date', "title"]
 
 	def get_absolute_url(self):
-		return reverse('portfolio:blog_detail', args=[self.slug,])
+		# return reverse('portfolio:blog_detail', args=[self.slug,])
+		return reverse('blog', args=[self.slug,]) # для класа замість вункції views.py
