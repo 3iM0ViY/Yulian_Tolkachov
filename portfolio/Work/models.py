@@ -34,8 +34,6 @@ class Work(OrderedModel):
 	is_published = models.BooleanField(verbose_name='Опублікувати', default=True)
 	updated = models.DateTimeField(auto_now=True, null=True)
 
-	# to do: категорії...
-
 	def __str__(self):
 		return self.title
 
