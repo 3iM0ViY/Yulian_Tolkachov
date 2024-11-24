@@ -30,6 +30,7 @@ def index(request):
 		form = RequestForm(request.POST)
 		if form.is_valid():
 			# Form fields passed validation
+			form.cleaned_data.pop("captcha")
 			Request.objects.create(**form.cleaned_data)
 			messages.success(request, "Your form has been successfully received. Soon I may contact you on the matter.")
 			# return redirect("home:home")

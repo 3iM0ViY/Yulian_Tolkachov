@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'Work.apps.WorkConfig',
     'django_ckeditor_5',
     "ordered_model",
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -163,6 +164,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5
+RECAPTCHA_LANGUAGE = 'en'
 
 customColorPalette = [
     {
