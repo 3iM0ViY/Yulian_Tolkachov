@@ -93,7 +93,7 @@ input:focus, textarea:focus
 	1. Global CSS
 ====================================== */
 img{
-	max-width: 400px;
+	max-width: 100%;
 }
 :root {
 	--white: #fff;
@@ -190,9 +190,22 @@ p a{
 	color: var(--blue);
 	font-weight: 700;
 }
+.message{
+	margin-top: 20px; 
+	font-weight: bold;
+}
+.success{
+	color: green;
+}
+.error{
+	color: red;
+}
 /* ===================================
 	2. Header / Menu CSS
 ====================================== */
+.home img{
+	max-width: 400px;
+}
 header{
 	max-width: 20%;
 	width: 100%;
@@ -1092,5 +1105,8 @@ form input[type=submit] {
 	}
 	form input, form textarea{
 		color: var(--white) !important;
+	}
+	.blog_info svg circle, .blog_info svg path{
+		stroke: var(--white);
 	}
 }*/

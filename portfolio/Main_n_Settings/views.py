@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import *
 from Work.models import *
 from Blog.models import *
+from .forms import *
+from django.contrib import messages
 # Create your views here.
 
 def index(request):
@@ -23,6 +25,19 @@ def index(request):
 	page_number = request.GET.get('page', 1)
 	blogs = paginator.page(page_number)
 	
+	# обробник форми контакту
+	if request.method == 'POST':
+		form = RequestForm(request.POST)
+		if form.is_valid():
+			# Form fields passed validation
+			Request.objects.create(**form.cleaned_data)
+			messages.success(request, "Your form has been successfully received. Soon I may contact you on the matter.")
+			# return redirect("home:home")
+		else:
+			messages.error(request, "There was an error in your form submission.")
+	else:
+		form = RequestForm()
+	
 	context = {
 		"main": main,
 		"sections_list": sections_list,
@@ -33,5 +48,6 @@ def index(request):
 		"socials_list": socials_list,
 		"works": works,
 		"blogs": blogs,
+		"form": form,
 	}
 	return render(request, 'index.html', context)

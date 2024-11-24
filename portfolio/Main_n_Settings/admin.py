@@ -80,9 +80,13 @@ class SocialAdmin(admin.ModelAdmin):
 class RequestAdmin(admin.ModelAdmin):
 	save_as = True
 	save_on_top = True
-	list_display = ("id", "name", "email", "subject", "created_at")
+	list_display = ("id", "name", "email", "subject", "get_content", "created_at")
 	search_fields = ("name", "subject", "content",)
 	readonly_fields = ("name", "content", "email", "subject", "created_at",)
+
+	def get_content(self, obj): #стислий вивід контенту повідомлення в адмінці
+		return obj.content[:90] + "..."
+	get_content.short_content = "content"
 
 admin.site.register(Main, MainAdmin)
 admin.site.register(Section, SectionAdmin)

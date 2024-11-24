@@ -263,14 +263,26 @@
 							{{ sections.contact.subtitle }}
 						</div>
 						{{ sections.contact.text|safe }}
-						<form action="POST">
-							<input id="name" type="text" name="name" placeholder="NAME">
+						{% if messages %}
+						<div class="message">
+						    {% for message in messages %}
+						    <span {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</span>
+						    {% endfor %}
+						</div>
+						{% endif %}
+						<form method="POST">
+							{% csrf_token %}
+							{{ form.name }}
+							{{ form.email }}
+							{{ form.subject }}
+							{{ form.content }}
+							<!-- <input id="name" type="text" name="name" placeholder="NAME">
 							<input id="contact-email" type="email" name="email" placeholder="EMAIL">
 							<input id="subject" type="text" name="subject" placeholder="SUBJECT">
-							<textarea id="message" name="message" placeholder="MESSAGE"></textarea>
+							<textarea id="message" name="message" placeholder="MESSAGE"></textarea> -->
 							<input type="submit" value="SEND">
 						</form>
-
+						
 					</div>
 				</div>
 			</section>
