@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import *
 from Work.models import *
+from Blog.models import *
 # Create your views here.
 
 def index(request):
@@ -16,6 +17,11 @@ def index(request):
 	paginator = Paginator(works_list, 5)
 	page_number = request.GET.get('page', 1)
 	works = paginator.page(page_number)
+
+	blog_list = Blog.objects.filter(is_published=True)
+	paginator = Paginator(blog_list, 5)
+	page_number = request.GET.get('page', 1)
+	blogs = paginator.page(page_number)
 	
 	context = {
 		"main": main,
@@ -26,5 +32,6 @@ def index(request):
 		"skills_list": skills_list,
 		"socials_list": socials_list,
 		"works": works,
+		"blogs": blogs,
 	}
 	return render(request, 'index.html', context)

@@ -212,6 +212,9 @@ CKEDITOR_5_CONFIGS = {
             'italic',
             'underline',
             '|',
+            'image.toolbar',
+            'insertImage',
+            '|',
             'link',
             'insertTable',
             'highlight',
@@ -226,7 +229,7 @@ CKEDITOR_5_CONFIGS = {
             'outdent',
             'indent'
         ],
-        'balloonToolbar': ['bold', 'italic', '|', 'link', '|', 'bulletedList', 'numberedList'],
+        'balloonToolbar': ['bulletedList', 'numberedList'],
 
     },
     'extends': {

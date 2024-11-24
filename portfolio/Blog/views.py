@@ -16,17 +16,17 @@ def blog_detail(request, blog):
 	sections_list = Section.objects.filter(is_published=True)
 	socials_list = Social.objects.filter(is_published=True)
 
-	blog = get_object_or_404(Blog, is_published = True, slug = blog,)
+	article = get_object_or_404(Blog, is_published = True, slug = blog,)
 	context = {
 		"main": main,
 		"sections_list": sections_list,
 		"socials_list": socials_list,
-		'blog': blog,
+		'article': article,
 	}
 	return render(request, 'blog.html', context)
 
 # Так само виводить дописи, тільки класом + готовий лічильник переглядів
-class Blog(DetailView):
+class Blog_detail(DetailView):
 	model = Blog
 	context_object_name = "blog"
 	template_name = 'blog.html'

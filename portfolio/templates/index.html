@@ -211,28 +211,13 @@
 							{{ sections.blog.subtitle }}
 						</div>
 						<ul>
+							{% for article in blogs %}
 							<li class="blog_element">
-								<a href="blog" class="blog_title">Testing link 1</a>
-								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+								<a href="{{ article.get_absolute_url }}" class="blog_title">{{ article.title }}</a>
+								<div class="blog_info"><span>{{ article.date }}</span><span>{{ article.category }}</span></div>
 							</li>
-							<li class="blog_element">
-								<a href="blog" class="blog_title">Encyclopaedia galactica shores of cosmic</a>
-								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
-							</li>
-							<li class="blog_element">
-								<a href="blog" class="blog_title">Testing link 1</a>
-								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
-							</li>
-							<li class="blog_element">
-								<a href="blog" class="blog_title">Testing link 1</a>
-								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
-							</li>
-							<li class="blog_element">
-								<a href="blog" class="blog_title">Encyclopaedia galactica shores of cosmic</a>
-								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
-							</li>
+							{% endfor %}
 						</ul>
-
 					</div>
 				</div>
 			</section>
@@ -488,6 +473,9 @@
 			}
 			form input, form textarea {
 				color: var(--white) !important;
+			}
+			.blog_info svg circle, .blog_info svg path{
+				stroke: var(--white);
 			}
 		`;
 

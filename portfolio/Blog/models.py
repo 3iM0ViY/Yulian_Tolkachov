@@ -43,6 +43,7 @@ class Blog(OrderedModel):
 	is_main = models.BooleanField(verbose_name='На головну', default=True)
 	is_published = models.BooleanField(verbose_name='Опублікувати', default=True)
 	date = models.DateTimeField(verbose_name='Написано', auto_now_add=True)
+	views = models.IntegerField(default=0, verbose_name="Кількість переглядів")
 
 	def __str__(self):
 		return self.title
@@ -53,5 +54,5 @@ class Blog(OrderedModel):
 		ordering = ['-order', '-date', "title"]
 
 	def get_absolute_url(self):
-		# return reverse('portfolio:blog_detail', args=[self.slug,])
-		return reverse('blog', args=[self.slug,]) # для класа замість вункції views.py
+		# return reverse('blog:blog_detail', args=[self.slug,])
+		return reverse('blog:Blog_detail', args=[self.slug,]) # для класа замість вункції views.py
