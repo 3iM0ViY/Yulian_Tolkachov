@@ -1,12 +1,21 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from ckeditor.widgets import CKEditorWidget
+from django import forms
+from django_ckeditor_5.widgets import CKEditor5Widget
 from ordered_model.admin import OrderedModelAdmin
 
 from .models import *
 
 # Register your models here.
+
+class WorkAdminForm(forms.ModelForm):
+	content = forms.CharField(widget=CKEditor5Widget())
+	class Meta():
+		model = Work
+		fields = "__all__"
+
+# ///////////////////////
 
 class PhotoInline(admin.TabularInline):
 	model = CarouselItem
@@ -35,6 +44,7 @@ class PhotoAdmin(admin.ModelAdmin):
 
 class WorkAdmin(OrderedModelAdmin):
 	inlines = [PhotoInline]
+	form = WorkAdminForm
 	list_display = ("id", "title", "job", "client", "get_photo", "date_start", "is_main", "is_published")
 	list_editable = ("is_main", "is_published",)
 	list_display_links = ("id",)

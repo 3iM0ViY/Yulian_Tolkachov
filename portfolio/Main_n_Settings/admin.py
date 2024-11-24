@@ -2,22 +2,30 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from django import forms
-from ckeditor.widgets import CKEditorWidget
+from django.forms import Textarea #розмір поля
+from django_ckeditor_5.widgets import CKEditor5Widget
+from ordered_model.admin import OrderedModelAdmin
 
 from .models import *
 # Register your models here.
 
 class SectionAdminForm(forms.ModelForm):
-	text = forms.CharField(widget=CKEditorWidget())
+	text = forms.CharField(widget=CKEditor5Widget())
 	class Meta():
 		model = Section
+		fields = "__all__"
+
+class YearsAdminForm(forms.ModelForm):
+	content = forms.CharField(widget=CKEditor5Widget())
+	class Meta():
+		model = Years
 		fields = "__all__"
 
 # ///////////////////////		
 
 class MainAdmin(admin.ModelAdmin):
-	list_display = ("id", "get_photo", "is_published")
-	list_editable = ("is_published",)
+	list_display = ("id", "get_photo", "email", "role", "phone", "is_published")
+	list_editable = ("is_published", "email", "role", "phone",)
 	list_display_links = ("id",)
 	readonly_fields = ("get_photo",)
 
@@ -28,33 +36,62 @@ class MainAdmin(admin.ModelAdmin):
 
 	get_photo.short_description = "Фото"
 
-class SectionAdmin(admin.ModelAdmin):
+class SectionAdmin(OrderedModelAdmin):
 	form = SectionAdminForm
-	list_display = ("id", "title", "is_published")
+	list_display = ("id", "title", "subtitle", 'order', 'move_up_down_links', "is_published")
+	readonly_fields = ('order', 'move_up_down_links',)
+	prepopulated_fields = {'slug': ('title',)}
+	ordering = ('order',)
 	list_editable = ("title", "is_published")
 	list_display_links = ("id",)
 
-class ContactsAdmin(admin.ModelAdmin):
-	list_display = ("id", "email", "role", "phone", "is_published")
-	search_fields = ("title", "email",)
+class ServicesAdmin(admin.ModelAdmin):
+	list_display = ("id", "title", "subtitle", "get_photo", "is_published")
+	list_editable = ("title", "subtitle", "is_published",)
+	list_display_links = ("id",)
+	readonly_fields = ("get_photo",)
 
-	def __str__(self):
-		return self.title
+	def get_photo(self, obj):
+		if obj.photo:
+			return mark_safe(f'<img src="{obj.photo_minified.url}" width="50">')
+		return "-"
+
+	get_photo.short_description = "Фото"
+
+class YearsAdmin(admin.ModelAdmin):
+	form = YearsAdminForm
+	formfield_overrides = {
+        models.TextField: {'widget': Textarea(attrs={'rows':3, 'cols':160})},
+    } #розмір поля
+	list_display = ("id", "year", "content", "is_published")
+	list_editable = ("year", "content", "is_published")
+	list_display_links = ("id",)
+
+class SkillsAdmin(admin.ModelAdmin):
+	list_display = ("id", "title", "percentage", "is_published")
+	list_editable = ("title", "percentage", "is_published")
+	list_display_links = ("id",)
 
 class SocialAdmin(admin.ModelAdmin):
-	list_display = ("id", "title", "is_published")
-	list_editable = ("title", "is_published")
+	list_display = ("id", "title", "icon", "is_published")
+	list_editable = ("title", "icon", "is_published")
 	list_display_links = ("id",)
 
 class RequestAdmin(admin.ModelAdmin):
 	save_as = True
 	save_on_top = True
-	list_display = ("id", "name", "email", "subject", "created_at")
+	list_display = ("id", "name", "email", "subject", "get_content", "created_at")
 	search_fields = ("name", "subject", "content",)
 	readonly_fields = ("name", "content", "email", "subject", "created_at",)
 
+	def get_content(self, obj): #стислий вивід контенту повідомлення в адмінці
+		return obj.content[:90] + "..."
+	get_content.short_content = "content"
+
 admin.site.register(Main, MainAdmin)
 admin.site.register(Section, SectionAdmin)
-admin.site.register(Contacts, ContactsAdmin)
+admin.site.register(Services, ServicesAdmin)
+admin.site.register(Years, YearsAdmin)
+admin.site.register(Skills, SkillsAdmin)
 admin.site.register(Social, SocialAdmin)
 admin.site.register(Request, RequestAdmin)
