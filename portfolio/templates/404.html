@@ -1,0 +1,88 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+    <title>404</title>
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog.css' %}">
+{% endblock %}
+
+{% block main %}
+<section class="section error-page" id="error-page">
+    <div class="wrap about_wrap">
+        <div class="error_content section_content">
+            <h2 class="error_title">404 - Сторінку не знайдено</h2>
+            <p class="error_message">Сорі, але те чого ви шукаєте не існує.</p>
+            <span><a href="{% url 'home:home' %}" class="error_link">Назад на головну</a></span>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const headerOpener = document.getElementById("header_opener");
+        const header = document.getElementById("header");
+        const clickableElements = document.querySelectorAll("nav a, .nav_name a");
+
+        headerOpener.addEventListener("click", function() {
+            toggleHeader();
+        });
+
+        Array.from(clickableElements).forEach(element => {
+            element.addEventListener("click", function() {
+                if(window.innerWidth <= 750) {
+                    closeHeader();
+                }
+            });
+        });
+
+        function toggleHeader() {
+            headerOpener.classList.toggle("opened");
+            header.classList.toggle("opened");
+        }
+        function closeHeader() {
+            headerOpener.classList.remove("opened");
+            header.classList.remove("opened");
+        }
+    });
+</script>
+<script>
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    function changeLinkState() {
+        let index = sections.length;
+
+        while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+            navLinks.forEach((link) => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+    }
+
+    changeLinkState();
+    window.addEventListener('scroll', changeLinkState);
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        const navPageNumber = document.querySelector('.nav_page > span:first-child');
+
+        function changeLinkState() {
+            let index = sections.length;
+
+            while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+            navLinks.forEach((link) => link.classList.remove('active'));
+            navLinks[index].classList.add('active');
+            navPageNumber.textContent = String(index + 1).padStart(2, '0');
+        }
+
+        changeLinkState();
+        window.addEventListener('scroll', changeLinkState);
+    });
+</script>
+{% endblock %}
