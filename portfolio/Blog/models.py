@@ -37,6 +37,8 @@ class Blog(OrderedModel):
 	title = models.CharField(verbose_name='Заголовок', max_length=150)
 	slug = models.SlugField(verbose_name='Слаг', max_length=150, null=True)
 	subtitle = models.CharField(verbose_name="Підзаголовок", max_length=250, blank=True)
+	meta = models.CharField(verbose_name="Мета", max_length=250, blank=True, null=True)
+	keywords = models.CharField(verbose_name="Ключові слова", max_length=250, blank=True, null=True)
 	category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="Публікації", blank=True, verbose_name="Категорія")
 	tags = models.ManyToManyField(Tag, blank=True, related_name="Публікації", verbose_name="Теги")
 	content = models.TextField(verbose_name="Вміст", blank=True)

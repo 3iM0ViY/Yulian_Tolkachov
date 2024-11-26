@@ -21,6 +21,8 @@ class Work(OrderedModel):
 	title = models.CharField(verbose_name='Заголовок', max_length=150)
 	slug = models.SlugField(verbose_name='Слаг', max_length=150, null=True)
 	subtitle = models.CharField(verbose_name="Підзаголовок", max_length=250, blank=True)
+	meta = models.CharField(verbose_name="Мета", max_length=250, blank=True, null=True)
+	keywords = models.CharField(verbose_name="Ключові слова", max_length=250, blank=True, null=True)
 	photo = models.ImageField(verbose_name='Фото', upload_to="work/%Y/%m", blank=True, null=True)
 	photo_minified = models.ImageField(verbose_name='Стиснуте фото', upload_to="work_mini/%Y/%m", null=True, blank=True)
 	alt_text = models.CharField(verbose_name="Підпис для фото", max_length=250, blank=True)

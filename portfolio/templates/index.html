@@ -11,6 +11,10 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
 	{% endblock %}
 	<link rel="icon" type="image/x-icon" href="{{main.icon.url}}">
+	{% block meta %}
+	<meta name="description" content="{{main.meta}}">
+	<meta name="keywords" content="{{main.keywords}}">
+	{% endblock %}
 </head>
 <body>
 	<div class="container">
@@ -61,7 +65,7 @@
 				<div class="nav_name"><a href="{% url 'home:home' %}">Yulian Tolkachov</a></div>
 				<nav>
 					<ul>
-						<li><a href="{% url 'home:home' %}">Home</a></li>
+						<li><a href="{% url 'home:home' %}">Головна</a></li>
 
 						{% for section in sections_list %}
 						<li><a href="{% url 'home:home' %}#{{section.slug}}">{{section.title}}</a></li>

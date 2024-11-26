@@ -13,6 +13,8 @@ def current_year():
 	return datetime.date.today().year
 
 class Main(models.Model):
+	meta = models.CharField(verbose_name="Мета", max_length=250, blank=True, null=True)
+	keywords = models.CharField(verbose_name="Ключові слова", max_length=250, blank=True, null=True)
 	photo = models.ImageField(verbose_name='Фото', upload_to="", blank=True, null=True)
 	photo_minified = models.ImageField(verbose_name='Стиснуте фото', upload_to="", null=True, blank=True)
 	alt_text = models.CharField(verbose_name="Підпис", max_length=250, blank=True)

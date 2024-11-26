@@ -8,6 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'blog.css' %}">
 {% endblock %}
+{% block meta %}
+<meta name="description" content="{{blog.meta}}">
+<meta name="keywords" content="{{blog.keywords}}">
+{% endblock %}
 
 {% block main %}
 <section class="section blog" id="blog">
