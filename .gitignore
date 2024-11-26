@@ -114,7 +114,6 @@ dmypy.json
 .pyre/
 
 
-portfolio/staticfiles/
 portfolio/static/
 portfolio/media
 migrations/
