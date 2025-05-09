@@ -699,6 +699,12 @@ form input[type=submit] {
 	transition: opacity .3s ease;
 	cursor: pointer;
 }
+/* ===================================
+	3.9. 4K
+====================================== */
+@media (min-width: 2560px){
+
+}
 
 /* ===================================
 	4. Tablets
