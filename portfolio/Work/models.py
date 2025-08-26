@@ -39,7 +39,7 @@ class Work(OrderedModel):
 	def __str__(self):
 		return self.title
 
-	class Meta:
+	class Meta(OrderedModel.Meta):
 		verbose_name = 'Проєкт'
 		verbose_name_plural = 'Проєкти'
 		ordering = ['-order', '-date_end', "title"]

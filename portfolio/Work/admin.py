@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from django import forms
-from django_ckeditor_5.widgets import CKEditor5Widget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from ordered_model.admin import OrderedModelAdmin
 
 from .models import *
@@ -10,7 +10,7 @@ from .models import *
 # Register your models here.
 
 class WorkAdminForm(forms.ModelForm):
-	content = forms.CharField(widget=CKEditor5Widget())
+	content = forms.CharField(widget=CKEditorUploadingWidget())
 	class Meta():
 		model = Work
 		fields = "__all__"
@@ -45,14 +45,15 @@ class PhotoAdmin(admin.ModelAdmin):
 class WorkAdmin(OrderedModelAdmin):
 	inlines = [PhotoInline]
 	form = WorkAdminForm
-	list_display = ("id", "title", "job", "client", "get_photo", "date_start", "is_main", "is_published")
+	list_display = ("id", 'order', 'move_up_down_links', "title", "job", "client", "get_photo", "date_start", "is_main", "is_published")
 	list_editable = ("is_main", "is_published",)
 	list_display_links = ("id",)
 	search_fields = ("title", "subtitle", "job", "client", "content",)
 	list_filter = ("is_main", "is_published",)
 	prepopulated_fields = {'slug': ('title',)}
-	readonly_fields = ("get_photo", "slide")
-	fields = ("title", "slug", "subtitle", "photo", "photo_minified", "get_photo", "alt_text", "date_start", "date_end", "client", "job", "content", "is_main", "is_published")
+	readonly_fields = ('order', 'move_up_down_links', "get_photo", "slide")
+	ordering = ('order',)
+	fields = ('order', 'move_up_down_links', "title", "slug", "subtitle", "photo", "photo_minified", "get_photo", "alt_text", "date_start", "date_end", "client", "job", "content", "is_main", "is_published")
 	show_facets = admin.ShowFacets.ALWAYS
 
 	def get_photo(self, obj):
