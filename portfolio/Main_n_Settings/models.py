@@ -44,7 +44,7 @@ class Section(OrderedModel):
 	def __str__(self):
 		return self.title
 
-	class Meta:
+	class Meta(OrderedModel.Meta):
 		verbose_name = 'Секція'
 		verbose_name_plural = 'Секції'
 		ordering = ["order"]
@@ -78,7 +78,7 @@ class Years(models.Model):
 		verbose_name_plural = 'Роки'
 		ordering = ['year']
 
-class Skills(models.Model):
+class Skills(OrderedModel):
 	title = models.CharField(verbose_name='Назва', max_length=150)
 	percentage = models.PositiveIntegerField(verbose_name='Відсоток', validators=PERCENTAGE_VALIDATOR, default=50) #відсоток прогесу
 	is_published = models.BooleanField(verbose_name='Опублікувати', default=True)
@@ -86,7 +86,7 @@ class Skills(models.Model):
 	def __str__(self):
 		return self.title
 
-	class Meta:
+	class Meta(OrderedModel.Meta):
 		verbose_name = 'Скіл'
 		verbose_name_plural = 'Скіли'
 		# ordering = ['title']

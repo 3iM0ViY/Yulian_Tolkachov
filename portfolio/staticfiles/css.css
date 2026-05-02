@@ -451,7 +451,7 @@ h1>span:hover {
 .portfolio_grid{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr;
+/*	grid-template-rows: 1fr 1fr 1fr 1fr;*/
 	gap: 0px 0px;
 	grid-auto-flow: row;
 	grid-template-areas:
@@ -495,6 +495,7 @@ h1>span:hover {
   left: 0;
 }
 .portfolio_grid_caption p{
+	text-align: center;
 	font-size: 15px;
 	line-height: 100%;
 	font-weight: 500;
@@ -698,6 +699,12 @@ form input[type=submit] {
 	letter-spacing: 8px;
 	transition: opacity .3s ease;
 	cursor: pointer;
+}
+/* ===================================
+	3.9. 4K
+====================================== */
+@media (min-width: 2560px){
+
 }
 
 /* ===================================

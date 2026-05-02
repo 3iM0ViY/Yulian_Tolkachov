@@ -10,7 +10,7 @@ class RequestForm(forms.Form):
     content = forms.CharField(label="Ваше повідомлення", max_length=1000, widget=forms.Textarea(attrs={'placeholder': 'MESSAGE'}))
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox(attrs={
             'data-theme': 'dark',
-            'data-size': 'compact',
+            'data-size': 'normal',
         }))
 
     class Meta:

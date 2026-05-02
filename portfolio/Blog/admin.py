@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django import forms
-from django_ckeditor_5.widgets import CKEditor5Widget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from ordered_model.admin import OrderedModelAdmin
 
 from .models import *
 # Register your models here.
 
 class BlogAdminForm(forms.ModelForm):
-	content = forms.CharField(widget=CKEditor5Widget())
+	content = forms.CharField(widget=CKEditorUploadingWidget())
 	class Meta():
 		model = Blog
 		fields = "__all__"
