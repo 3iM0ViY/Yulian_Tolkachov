@@ -36,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, True)
+    DEBUG=(bool, False)
 )
 DEBUG = env('DEBUG')
 
@@ -47,6 +47,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     "yuliandev.space",
     "www.yuliandev.space",
+    'localhost',
 ]
 
 

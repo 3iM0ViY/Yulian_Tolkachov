@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+    <div class="container">
+        <div id="header_opener" class="header_opener">
+            <span class="header_opener_cover">
+                <span></span>
+            </span>
+        </div>
+        <header id="header">
+            <div class="main_nav">
+                <div class="nav_page">
+                    <span>00</span><span class="step">/</span><span>07</span>
+                    <button id="theme_switch">
+                        <!-- Include your theme switcher SVGs here -->
+                    </button>
+                </div>
+                <div class="nav_name"><a href="index.html">Yulian Tolkachov</a></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <ul class="nav_social">
+                    <li><a href="#social">LK.</a></li>
+                    <li><a href="#social">IN.</a></li>
+                    <li><a href="#social">TG.</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <main>
+            <section class="section error-page" id="error-page">
+                <div class="wrap about_wrap">
+                    <div class="error_content section_content">
+                        <h2 class="error_title">404 - Page Not Found</h2>
+                        <p class="error_message">Sorry, the page you are looking for does not exist.</p>
+                        <p><a href="index.html" class="error_link">Go back to the homepage</a></p>
+                    </div>
+                </div>
+            </section>
+            <ul class="footer nav_social">
+                <li><a href="#social">LK.</a></li>
+                <li><a href="#social">IN.</a></li>
+                <li><a href="#social">TG.</a></li>
+            </ul>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const headerOpener = document.getElementById("header_opener");
+            const header = document.getElementById("header");
+            const clickableElements = document.querySelectorAll("nav a, .nav_name a");
+
+            headerOpener.addEventListener("click", function () {
+                toggleHeader();
+            });
+
+            Array.from(clickableElements).forEach(element => {
+                element.addEventListener("click", function () {
+                    if (window.innerWidth <= 750) {
+                        closeHeader();
+                    }
+                });
+            });
+
+            function toggleHeader() {
+                headerOpener.classList.toggle("opened");
+                header.classList.toggle("opened");
+            }
+            function closeHeader() {
+                headerOpener.classList.remove("opened");
+                header.classList.remove("opened");
+            }
+        });
+    </script>
+</body>
+</html>
