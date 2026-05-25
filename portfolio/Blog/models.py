@@ -50,7 +50,7 @@ class Blog(OrderedModel):
 	def __str__(self):
 		return self.title
 
-	class Meta:
+	class Meta(OrderedModel.Meta):
 		verbose_name = 'Допис'
 		verbose_name_plural = 'Дописи'
 		ordering = ['-order', '-date', "title"]

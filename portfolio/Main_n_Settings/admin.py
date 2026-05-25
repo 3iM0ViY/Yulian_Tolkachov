@@ -3,20 +3,20 @@ from django.utils.safestring import mark_safe
 
 from django import forms
 from django.forms import Textarea #розмір поля
-from django_ckeditor_5.widgets import CKEditor5Widget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from ordered_model.admin import OrderedModelAdmin
 
 from .models import *
 # Register your models here.
 
 class SectionAdminForm(forms.ModelForm):
-	text = forms.CharField(widget=CKEditor5Widget())
+	text = forms.CharField(widget=CKEditorUploadingWidget())
 	class Meta():
 		model = Section
 		fields = "__all__"
 
 class YearsAdminForm(forms.ModelForm):
-	content = forms.CharField(widget=CKEditor5Widget())
+	content = forms.CharField(widget=CKEditorUploadingWidget())
 	class Meta():
 		model = Years
 		fields = "__all__"
@@ -67,10 +67,12 @@ class YearsAdmin(admin.ModelAdmin):
 	list_editable = ("year", "content", "is_published")
 	list_display_links = ("id",)
 
-class SkillsAdmin(admin.ModelAdmin):
-	list_display = ("id", "title", "percentage", "is_published")
+class SkillsAdmin(OrderedModelAdmin):
+	list_display = ("id", 'order', 'move_up_down_links', "title", "percentage", "is_published")
 	list_editable = ("title", "percentage", "is_published")
 	list_display_links = ("id",)
+	readonly_fields = ('order', 'move_up_down_links',)
+	ordering = ('order',)
 
 class SocialAdmin(admin.ModelAdmin):
 	list_display = ("id", "title", "icon", "is_published")
