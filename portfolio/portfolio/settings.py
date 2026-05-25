@@ -36,18 +36,20 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False)
+    DEBUG=(bool, True)
 )
 DEBUG = env('DEBUG')
 
+ADMINS = [
+    ("Yulian T", "yulian.tolkachov@gmail.com"),
+]
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
     "yuliandev.space",
     "www.yuliandev.space",
-    'localhost',
+    'mail.yuliandev.space',
 ]
 
 

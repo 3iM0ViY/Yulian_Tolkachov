@@ -1,28 +1,17 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% block title %}
-	<title>Yulian Tolkachov</title>
-	{% endblock %}
-	{% block styles %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
-	{% endblock %}
-	<link rel="icon" type="image/x-icon" href="{{main.icon.url}}">
-	{% block meta %}
-	<meta name="description" content="{{main.meta}}">
-	<meta name="keywords" content="{{main.keywords}}">
-	{% endblock %}
+	<title>Mine</title>
+	<link rel="stylesheet" href="css.css">
 </head>
 <body>
 	<div class="container">
 		
-		{% block header %}
 		<div id="header_opener" class="header_opener">
 			<span class="header_opener_cover">
-				<span></span>                   
+				<span></span>
 			</span>
 		</div>
 		<header id="header">
@@ -62,235 +51,305 @@
 						</svg>
 					</button>
 				</div>
-				<div class="nav_name"><a href="{% url 'home:home' %}">Yulian Tolkachov</a></div>
+				<div class="nav_name"><a href="index.html">Yulian Tolkachov</a></div>
 				<nav>
 					<ul>
-						<li><a href="{% url 'home:home' %}">Головна</a></li>
-
-						{% for section in sections_list %}
-						<li><a href="{% url 'home:home' %}#{{section.slug}}">{{section.title}}</a></li>
-						{% endfor %}
-
+						<li><a href="#home">Home</a></li>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#blog">Blog</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</nav>
-
 				<ul class="nav_social">
-					{% for social in socials_list %}
-					<li><a href="{{social.url}}" target="_blank">{{social.icon}}</a></li>
-					{% endfor %}
+					<li><a href="#social">LK.</a></li>
+					<li><a href="#social">IN.</a></li>
+					<li><a href="#social">TG.</a></li>
 				</ul>
-
 			</div>
 		</header>
-		{% endblock %}
+
 		<main>
-			{% block main %}
 			<section class="section home" id="home">
 				<div class="wrap home_wrap">
 					<h1>Hello, <br>I'm <span>Yulian Tolkachov</span></h1>
-					<picture alt="{{ main.alt_text }}">
-						<source srcset="{{ main.photo.url }}" media="(min-width:800px)">
-						<img src="{{ main.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ main.alt_text }}">
-					</picture>
+					<img src="portrait.jpg" alt="">
+					<a class="home_link">	
+						<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M7.71178 17.2976L24.7944 35.5602L41.877 17.2976" stroke="#F44647" stroke-width="8"/>
+						</svg>
+					</a>
 				</div>
 			</section>
 
-			<section class="section services" id="{{ sections.services.slug }}">
+			<section class="section services" id="services">
 				<div class="wrap services_wrap">
 					<div class="services_content section_content">
-						<h2>{{ sections.services.title }}</h2>
+						<h2>services</h2>
 						<div class="section_description">
-							{{ sections.services.subtitle }}
+							Lorem ipsum dolor sit amet consectetu adipiscing elit viverra tristique placerat
 						</div>
 						<div class="section_content">
-							{{ sections.services.text|safe }}
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, asperiores iste placeat iure molestias incidunt ad? Iusto, quia saepe ipsam omnis consequatur inventore dolorum illum modi. Doloremque, debitis. Ullam, vel?</p>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut aut quo expedita necessitatibus modi, <a href="#in_text">doloribus provident at</a>, quas asperiores vel nulla soluta reprehenderit saepe, aliquam consequuntur. Beatae optio ipsum excepturi?</p>
 						</div>
 					</div>
 					<ul class="services_cv section_content_slide-right parallax left">
-						<li><a href="{{main.cv.url}}" download>Download CV</a></li>
-						<li><a href="{{main.portfolio_link}}" target="_blank">My Portfolio</a></li>
+						<li><a href="#services_cv">Download CV</a></li>
+						<li><a href="#services_cv">My Portfolio</a></li>
 					</ul>
 					<ul class="services_cv services_cv_mobile">
-						<li><a href="{{main.cv.url}}" download>Download CV</a></li>
-						<li><a href="{{main.portfolio_link}}" target="_blank">My Portfolio</a></li>
+						<li><a href="#services_cv">Download CV</a></li>
+						<li><a href="#services_cv">My Portfolio</a></li>
 					</ul>
-
 					<div class="services_grid">
-						{% for service in services_list %}
 						<div class="services_grid_item">
-							<picture alt="{{ service.alt_text }}">
-								<source srcset="{{ service.photo.url }}" media="(min-width:800px)">
-								<img src="{{ service.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ service.alt_text }}">
-							</picture>
-							<h4>{{service.title}}</h4>
-							<p>{{service.subtitle}}</p>
+							<img src="horizontal.jpg" alt="">
+							<h4>Design</h4>
+							<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit.</p>
 						</div>
-						{% endfor %}
+						<div class="services_grid_item">
+							<img src="horizontal.jpg" alt="">
+							<h4>Develop</h4>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						</div>
+						<div class="services_grid_item">
+							<img src="horizontal.jpg" alt="">
+							<h4>Write</h4>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						</div>
+						<div class="services_grid_item">
+							<img src="horizontal.jpg" alt="">
+							<h4>Promote</h4>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						</div>
 					</div>
-
 				</div>
 			</section>
 
-			<section class="section about" id="{{ sections.about.slug }}">
+			<section class="section about" id="about">
 				<div class="wrap about_wrap">
-					<h2>{{ sections.about.title }}</h2>
+					<h2>About</h2>
 					<div class="section_description">
-						{{ sections.about.subtitle }}
+						Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
 					</div>
 					<div class="section_content">
-						<picture alt="{{ main.alt_banner_text }}">
-							<source srcset="{{ main.banner.url }}" media="(min-width:800px)">
-							<img class="section_content_slide parallax_right right" src="{{ main.banner_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ main.alt_banner_text }}">
-						</picture>
-						<picture alt="{{ main.alt_banner_text }}">
-							<source srcset="{{ main.banner.url }}" media="(min-width:800px)">
-							<img class="section_content_image_mobile" src="{{ main.banner_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ main.alt_banner_text }}">
-						</picture>
+						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, asperiores iste placeat iure molestias incidunt ad? Iusto, quia saepe ipsam omnis consequatur inventore dolorum illum modi. Doloremque, debitis. Ullam, vel?</p>
+						<img class="section_content_slide parallax_right right" src="horizontal.jpg" alt="">
+						<img class="section_content_image_mobile" src="horizontal.jpg" alt="">
 						<div class="about_contacts parallax_top">
 							<ul>
 								<li>
 									<h6>Email</h6>
-									<a href="mailto:{{main.email}}">{{main.email}}</a>
+									<a href="#contacts">yulian.tolkachov@gmail.com</a>
 								</li>
 								<li>
 									<h6>Role</h6>
-									<a href="#{{ sections.contact.slug }}">{{main.role}}</a>
+									<a href="#contacts">Web programmer</a>
 								</li>
 								<li>
 									<h6>Phone</h6>
-									<a href="tel:{{main.phone}}">{{main.phone}}</a>
+									<a href="#contacts">+380 66 791 33 01</a>
 								</li>
 							</ul>
 						</div>
 						<div class="about_text">
-							{{ sections.about.text|safe }}
+							<p> Nam ultrices ultrices nec tortor pulvinar fermentum mi. Sociis sit tristique sagittis, mauris volutpat estera phasellus. Varius nec orci, quam augue lorem lines pellentesque non id. Tristique amet volutpat nunc euismod. Mauris <a href="#">felis at quam</a> sollicitudin est sempe vulputate id in nullam. Purus tincidunt maga ut turpis eu, eu enim. Nisl porttitor elit risus velit urna morbit mauris at proin laoreet lobortis urna aliquam setera fermentum sit iaculis vitae hendrerit et. Arcu ac est dictum lorem ispum dolor sit amet nunc usrus seio.</p>
+							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi repellat similique necessitatibus accusamus perferendis, ut explicabo quas modi eum eos minus mollitia odio et sunt illum voluptate cumque facere totam!</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quam ducimus perspiciatis eos ea quae facilis doloremque corporis, odit est sit exercitationem, temporibus unde dolor consectetur magnam dolorum at fuga! Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
 							<div class="about_signature">
-								<img src="{{main.signature.url}}" alt="My signature">
+								<img src="./signature.png" alt="Signature (on ssd)">
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="section portfolio" id="{{ sections.portfolio.slug }}">
+			<section class="section portfolio" id="portfolio">
 				<div class="wrap about_wrap">
 					<div class="portfolio_content section_content">
-						<h2>{{ sections.portfolio.title }}</h2>
+						<h2>Portfolio</h2>
 						<div class="section_description">
-							{{ sections.portfolio.subtitle }}
+							Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
 						</div>
 						<div class="portfolio_grid">
-
-							{% for work in works %}
 							<div class="portfolio_grid_block">
-								<a href="{{ work.get_absolute_url }}" class="portfolio_grid_caption">
-									<p class="portfolio_title">{{ work.title }}</p>
-									<p>{{ work.subtitle }}</p>
+								<a href="work.html" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
 								</a>
-								<div class="portfolio_grid_img">
-									<picture alt="{{ work.alt_text }}">
-										<source srcset="{{ work.photo.url }}" media="(min-width:800px)">
-										<img src="{{ work.photo_minified.url }}" {% if not forloop.first %} loading="lazy" {% endif %} alt="{{ work.alt_text }}">
-									</picture>
-								</div>
+								<div class="portfolio_grid_img"><img src="red.png" alt=""></div>
 							</div>
-							{% endfor %}
-
+							<div class="portfolio_grid_block">
+								<a href="work.html" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="vertical.jpg" alt=""></div>
+							</div>
+							<div class="portfolio_grid_block">
+								<a href="work.html" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="red2.png" alt=""></div>
+							</div>
+							<div class="portfolio_grid_block">
+								<a href="work.html" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="red2.png" alt=""></div>
+							</div>
+							<div class="portfolio_grid_block">
+								<a href="work.html" class="portfolio_grid_caption">
+									<p class="portfolio_title">hi</p>
+									<p>hi</p>
+								</a>
+								<div class="portfolio_grid_img"><img src="red.png" alt=""></div>
+							</div>
 						</div>
 
 					</div>
 				</div>
 			</section>
 
-			<section class="section blog" id="{{ sections.blog.slug }}">
+			<section class="section blog" id="blog">
 				<div class="wrap about_wrap">
 					<div class="blog_content section_content">
-						<h2>{{ sections.blog.title }}</h2>
+						<h2>Development</h2>
 						<div class="section_description">
-							{{ sections.blog.subtitle }}
+							Further sections of this website and my portfolio are curently in development.
 						</div>
 						<ul>
-							{% for article in blogs %}
 							<li class="blog_element">
-								<a href="{{ article.get_absolute_url }}" class="blog_title">{{ article.title }}</a>
-								<div class="blog_info"><span>{{ article.date }}</span><span>{{ article.category }}</span></div>
+								<a href="blog.html" class="blog_title">Testing link 1</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
 							</li>
-							{% endfor %}
+							<li class="blog_element">
+								<a href="blog.html" class="blog_title">Encyclopaedia galactica shores of cosmic</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
+							<li class="blog_element">
+								<a href="blog.html" class="blog_title">Testing link 1</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
+							<li class="blog_element">
+								<a href="blog.html" class="blog_title">Testing link 1</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
+							<li class="blog_element">
+								<a href="blog.html" class="blog_title">Encyclopaedia galactica shores of cosmic</a>
+								<div class="blog_info"><span>Mar 13, 2024</span><span>category</span></div>
+							</li>
 						</ul>
+
 					</div>
 				</div>
 			</section>
 
-			<section class="section skills" id="{{ sections.skills.slug }}">
+			<section class="section skills" id="skills">
 				<div class="wrap about_wrap">
 					<div class="skills_content section_content">
-						<h2>{{ sections.skills.title }}</h2>
+						<h2>Skills</h2>
 						<div class="section_description">
-							{{ sections.skills.subtitle }}
+							Viverra tristique placerat massa est consectetur quisque nu fames lorem ipsum dolor sit amet consectetu.
 						</div>
-						{{ sections.skills.text|safe }}
-
-						<!-- <ul class="skills_group">{% comment "This section is under development" %}
-							{% for year in years_list %}
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt alias provident reprehenderit recusandae voluptas vitae iusto, nulla quo autem dolor in, maxime deserunt nam, veritatis illo eligendi assumenda nemo.</p>
+						<ul class="skills_group">
 							<li>
-								<span class="skills_date">{{year.year}}</span>
-								<p class="skills_text">{{year.content|safe}}</p>
+								<span class="skills_date">2024</span>
+								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit amet consectetur adipisicing, elit. Assumenda placeat vitae voluptatum expedita nam necessitatibus cum alias soluta ut! Cum soluta quos magnam harum aut nam eius eaque accusamus! Pariatur.</p>
 							</li>
-							{% endfor %}{% endcomment %}
-						</ul> -->
-
-						<ul class="skills_progress" style="padding-top: inherit !important;">
-							{% for skill in skills_list %}
 							<li>
-								<span class="skills_name">{{skill.title}}</span>
+								<span class="skills_date">2024</span>
+								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia sint doloremque explicabo veniam cupiditate consequuntur error atque harum consequatur. Quis tempora, assumenda suscipit modi dolorem quia, nihil nobis. Quos, tenetur!</p>
+							</li>
+							<li>
+								<span class="skills_date">2024</span>
+								<p class="skills_text"><strong>2022-2024</strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius pariatur id ipsum veniam temporibus, voluptatum in a, repellat quisquam ipsa ut illo soluta totam quod cumque aliquam, culpa facilis tenetur.</p>
+							</li>
+						</ul>
+						<ul class="skills_progress">
+							<li>
+								<span class="skills_name">Coding</span>
 								<div class="skill_fill">
-									<div class="skill_fill_progress" data-fill="{{skill.percentage}}%" style="width: {{skill.percentage}}%;"></div>
+									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
 								</div>
 							</li>
-							{% endfor %}
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 90%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 24%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 20%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 50%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
+								</div>
+							</li>
+							<li>
+								<span class="skills_name">Coding</span>
+								<div class="skill_fill">
+									<div class="skill_fill_progress" data-fill="10%" style="width: 10%;"></div>
+								</div>
+							</li>
 						</ul>
-
 					</div>
 				</div>
 			</section>
 
-			<section class="section contact" id="{{ sections.contact.slug }}">
+			<section class="section contact" id="contact">
 				<div class="wrap about_wrap">
 					<div class="contact_content section_content">
-						<h2>{{ sections.contact.title }}</h2>
+						<h2>Contact</h2>
 						<div class="section_description">
-							{{ sections.contact.subtitle }}
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
 						</div>
-						{{ sections.contact.text|safe }}
-						{% if messages %}
-						<div class="message">
-						    {% for message in messages %}
-						    <span {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</span>
-						    {% endfor %}
-						</div>
-						{% endif %}
-						<form method="POST">
-							{% csrf_token %}
-							{{ form.name }}
-							{{ form.email }}
-							{{ form.subject }}
-							{{ form.content }}
-							{{ form.captcha }}
-							<!-- <input id="name" type="text" name="name" placeholder="NAME">
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At sunt alias provident reprehenderit recusandae voluptas vitae iusto, nulla quo autem dolor in, maxime deserunt nam, veritatis illo eligendi assumenda nemo.</p>
+						<form action="POST">
+							<input id="name" type="text" name="name" placeholder="NAME">
 							<input id="contact-email" type="email" name="email" placeholder="EMAIL">
 							<input id="subject" type="text" name="subject" placeholder="SUBJECT">
-							<textarea id="message" name="message" placeholder="MESSAGE"></textarea> -->
+							<textarea id="message" name="message" placeholder="MESSAGE"></textarea>
 							<input type="submit" value="SEND">
 						</form>
-						
+
 					</div>
 				</div>
 			</section>
-			{% endblock %}
+
+
 		</main>
 	</div>
 
-{% block scripts %}
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
 		const headerOpener = document.getElementById("header_opener");
@@ -401,7 +460,7 @@
 		window.addEventListener('scroll', changeLinkState);
 	});
 </script>
-{% endblock %}
+
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
 		const themeSwitch = document.getElementById("theme_switch");
@@ -485,9 +544,6 @@
 			}
 			form input, form textarea {
 				color: var(--white) !important;
-			}
-			.blog_info svg circle, .blog_info svg path{
-				stroke: var(--white);
 			}
 		`;
 
