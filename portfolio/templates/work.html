@@ -18,7 +18,7 @@
 	<div class="wrap about_wrap">
 		<div class="blog_content section_content">
 			<h2 class="blog_title">{{ work.title }}</h2>
-			<div class="blog_info"><span>{{ work.job }}</span><span>{{ work.date_start }} - {{ work.date_end }}</span><span>{{ work.client }}</span></div>
+			<div class="blog_info"><span>{{ work.job }}</span><span>{{ work.date_start.date }} - {{ work.date_end.date }}</span><span>{{ work.client }}</span></div>
 			<div class="ism-slider" data-transition_type="fade" data-buttons="false" id="my-slider">
 				<ol>
 					{% for item in carousel %}
