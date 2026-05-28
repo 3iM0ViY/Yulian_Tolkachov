@@ -47,6 +47,7 @@ ADMINS = [
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = [
+    "127.0.0.1",
     "yuliandev.space",
     "www.yuliandev.space",
     'mail.yuliandev.space',
@@ -158,19 +159,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = "/home/h67964c/public_html/static" # this server settings
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'staticfiles'),
-)
+if DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+else:
+    STATIC_ROOT = "/home/h67964c/public_html/static" # this server settings
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "staticfiles"),
+]
+
+MEDIA_URL = '/media/'
+if DEBUG:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+else:
+    MEDIA_ROOT = "/home/h67964c/public_html/media" # this server settings
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
 RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
