@@ -31,7 +31,7 @@ jobs:
             --exclude=media
             --exclude=__pycache__
             --exclude=passenger_wsgi.py
-          path: ./
+          path: ./portfolio/
           remote_path: ${{ secrets.CPANEL_PROJECT_PATH }}/
           remote_host: ${{ secrets.CPANEL_HOST }}
           remote_user: ${{ secrets.CPANEL_USER }}
